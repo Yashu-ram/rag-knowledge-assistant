@@ -1,0 +1,24 @@
+[
+  {
+    "question": "How did the WALR on fresh rupee loans change during H2:2025-26 up to February 2026?",
+    "expected_excerpt": "fresh rupee loans increased by 5 bps",
+    "expected_page": 48
+  },
+  {
+    "question": "How much was the cumulative policy rate reduction in the easing cycle from February 2025?",
+    "expected_excerpt": "125 basis points",
+    "expected_page": 48
+  },
+  {
+    "question": "By how much did the median 1-year MCLR of scheduled commercial banks decline in H2:2025-26?",
+    "expected_excerpt": "declined by 20 bps",
+    "expected_page": 48
+  },
+  {"question": "How large was the policy rate cut in December 2025?", "expected_excerpt": "25 bps", "expected_page": 48, "accepted_excerpts": ["25 bps", "25 basis points"], "accepted_pages": [26, 48, 101]},
+  {"question": "How did the WALR for outstanding loans change in the current easing cycle up to February 2026?", "expected_excerpt": "declined by 87 bps", "expected_page": 48},
+  {"question": "How did the WALR for fresh rupee loans change in the current easing cycle?", "expected_excerpt": "declined by 89 bps", "expected_page": 48},
+  {"question": "How did WADTDR on outstanding deposits change during H2:2025-26 up to February 2026?", "expected_excerpt": "20 bps", "expected_page": 48},
+  {"question": "How did WADTDR on fresh deposits change during H2:2025-26 up to February 2026?", "expected_excerpt": "4 bps", "expected_page": 48},
+  {"question": "How did the share of EBLR linked loans change from end-June 2025 to end-December 2025?", "expected_excerpt": "65.4", "expected_page": 48},
+  {"question": "Which banks had the maximum pass-through to lending rates?", "expected_excerpt": "foreign banks", "expected_page": 51}
+]

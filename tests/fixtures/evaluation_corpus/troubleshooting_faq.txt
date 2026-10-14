@@ -1,0 +1,7 @@
+KiwiDesk Troubleshooting
+
+If document upload fails with error KD-401, check that the account has document indexing enabled.
+
+The maximum supported local upload size in the default configuration is 20 MB.
+
+If search returns no answers, first confirm that at least one document has status indexed.

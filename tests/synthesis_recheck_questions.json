@@ -1,0 +1,5 @@
+[
+  {"question": "Which field is returned when creating a ticket?", "expected_answerability": "answerable", "expected_source": "api_reference.md", "expected_keywords": ["ticket_id"]},
+  {"question": "What query parameter does the search endpoint accept?", "expected_answerability": "answerable", "expected_source": "api_reference.md", "expected_keywords": ["q", "limit"]},
+  {"question": "Explain warranty period and standard delivery time.", "expected_answerability": "answerable", "expected_source": "warranty.txt", "expected_items": [["warranty", "31"], ["delivery", "6"]], "expected_numbers": ["31", "6"]}
+]

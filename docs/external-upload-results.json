@@ -1,0 +1,17 @@
+{
+  "verification_mode": "live_real_embeddings_and_ollama_in_isolated_temporary_database",
+  "source": "newly generated Markdown bytes uploaded through POST /documents/upload",
+  "fresh_upload": "fresh-evaluator.md",
+  "chunk_count": 8,
+  "chroma_vectors": 8,
+  "embedding_dimensions": 384,
+  "target_tokens": 240,
+  "overlap_tokens": 60,
+  "model": "qwen2.5:1.5b",
+  "answer_text": "The Citrine press warranty period is 29 months.",
+  "citation_section": "Service Warranty",
+  "citation_filename_verified": true,
+  "exact_source_excerpt_verified": true,
+  "abstention": "I could not find enough information in the uploaded document to answer this.",
+  "passed": true
+}

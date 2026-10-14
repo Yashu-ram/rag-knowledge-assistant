@@ -1,0 +1,335 @@
+{
+  "model": "qwen2.5:1.5b",
+  "document": "RBI_Policy_RAG_Sample.pdf",
+  "chunk_count": 11,
+  "passed": 3,
+  "total": 3,
+  "results": [
+    {
+      "question": "What was the cumulative policy rate reduction during the 2025 easing cycle?",
+      "expected_value": "125",
+      "passed": true,
+      "response": {
+        "answer": "The cumulative policy rate reduction during the 2025 easing cycle was 125 basis points. [1](#source-661b5502d3c74407b0aea811aa27fbe9)",
+        "conversation_id": "1d8ba64a-60ab-4d92-9034-8a1ec6fdcf19",
+        "message_id": "ae4d720a-4794-441b-b4ae-46a52e68ec06",
+        "model_used": "qwen2.5:1.5b",
+        "answerable": "answerable",
+        "citations": [
+          {
+            "section": null,
+            "citation_id": 1,
+            "anchor": "source-661b5502d3c74407b0aea811aa27fbe9",
+            "context_excerpt": null,
+            "chunk_id": "fbd3e8dd14c36d0ae18678e4",
+            "document_id": "81c28be4-b834-4380-97d7-ee02ee782807",
+            "source_filename": "RBI_Policy_RAG_Sample.pdf",
+            "page_number": 1,
+            "excerpt": "A policy rate cut of 25 basis points in December 2025 took the\ncumulative reduction in the policy rate to 125 basis points."
+          }
+        ],
+        "retrieval_metadata": {
+          "evidence_count": 4,
+          "overview": false,
+          "top_k": 4,
+          "vector_top_k": 8,
+          "bm25_top_k": 8,
+          "model_latency_ms": 33004,
+          "retrieval_latency_ms": 174,
+          "retrieved_chunks": [
+            {
+              "chunk_id": "fbd3e8dd14c36d0ae18678e4",
+              "source_filename": "RBI_Policy_RAG_Sample.pdf",
+              "score": 0.03278688524590164,
+              "search_source": "keyword+semantic_chroma"
+            },
+            {
+              "chunk_id": "abf49c666f36df8f0bef06a1",
+              "source_filename": "RBI_Policy_RAG_Sample.pdf",
+              "score": 0.03149801587301587,
+              "search_source": "keyword+semantic_chroma"
+            },
+            {
+              "chunk_id": "8103b397bf3687a587a7937f",
+              "source_filename": "RBI_Policy_RAG_Sample.pdf",
+              "score": 0.03225806451612903,
+              "search_source": "keyword+semantic_chroma"
+            },
+            {
+              "chunk_id": "a2e5066008b4d73506a8d293",
+              "source_filename": "RBI_Policy_RAG_Sample.pdf",
+              "score": 0.03149801587301587,
+              "search_source": "keyword+semantic_chroma"
+            }
+          ],
+          "tool_calls": [
+            {
+              "tool": "hybrid_search",
+              "result_count": 4,
+              "diagnostics": {
+                "semantic_chunk_ids": [
+                  "fbd3e8dd14c36d0ae18678e4",
+                  "8103b397bf3687a587a7937f",
+                  "abf49c666f36df8f0bef06a1",
+                  "a2e5066008b4d73506a8d293",
+                  "f80e5ddffc53cd3e1d67be32",
+                  "8e2cc4cee6d1d88cb4f8d3cd",
+                  "a111c95af1acdca3dd3f6f86",
+                  "9fd68bbae3d51bb624f00c1f"
+                ],
+                "keyword_chunk_ids": [
+                  "fbd3e8dd14c36d0ae18678e4",
+                  "8103b397bf3687a587a7937f",
+                  "a2e5066008b4d73506a8d293",
+                  "abf49c666f36df8f0bef06a1",
+                  "a111c95af1acdca3dd3f6f86",
+                  "7ac7f5c5b44ed8558b907d9e",
+                  "9fd68bbae3d51bb624f00c1f",
+                  "163e2e09a3798021b35b7513"
+                ],
+                "fused_chunk_ids": [
+                  "fbd3e8dd14c36d0ae18678e4",
+                  "8103b397bf3687a587a7937f",
+                  "abf49c666f36df8f0bef06a1",
+                  "a2e5066008b4d73506a8d293",
+                  "a111c95af1acdca3dd3f6f86",
+                  "9fd68bbae3d51bb624f00c1f",
+                  "f80e5ddffc53cd3e1d67be32",
+                  "8e2cc4cee6d1d88cb4f8d3cd",
+                  "7ac7f5c5b44ed8558b907d9e",
+                  "163e2e09a3798021b35b7513"
+                ],
+                "first_chunk_ids": [],
+                "final_chunk_ids": [
+                  "fbd3e8dd14c36d0ae18678e4",
+                  "abf49c666f36df8f0bef06a1",
+                  "8103b397bf3687a587a7937f",
+                  "a2e5066008b4d73506a8d293"
+                ]
+              }
+            }
+          ],
+          "retry_count": 0,
+          "evidence_reason": "Hybrid retrieved context sent to the LLM.",
+          "grounding": {
+            "method": "citation_and_lexical_support_proxy",
+            "faithfulness": 0.8,
+            "supported_claims": 1,
+            "rejected_claims": 0,
+            "citation_validity": 1.0,
+            "polarity_consistent": true
+          }
+        },
+        "latency_ms": 35223
+      }
+    },
+    {
+      "question": "How did MCLR change in H2:2025-26?",
+      "expected_value": "20",
+      "passed": true,
+      "response": {
+        "answer": "The median one-year MCLR declined by 20 basis points in H2:2025-26. [1](#source-49e21a6137d647dd98e1ae4f2700e4b5)",
+        "conversation_id": "999cbe3f-8de1-4106-b23b-fc46cb2ab0de",
+        "message_id": "76fd89a4-9a85-4ce3-88d9-e132c833026e",
+        "model_used": "qwen2.5:1.5b",
+        "answerable": "answerable",
+        "citations": [
+          {
+            "section": null,
+            "citation_id": 1,
+            "anchor": "source-49e21a6137d647dd98e1ae4f2700e4b5",
+            "context_excerpt": null,
+            "chunk_id": "8103b397bf3687a587a7937f",
+            "document_id": "81c28be4-b834-4380-97d7-ee02ee782807",
+            "source_filename": "RBI_Policy_RAG_Sample.pdf",
+            "page_number": 2,
+            "excerpt": "- Median one-year MCLR declined by 20 basis points in H2:2025-26."
+          }
+        ],
+        "retrieval_metadata": {
+          "evidence_count": 4,
+          "overview": false,
+          "top_k": 4,
+          "vector_top_k": 8,
+          "bm25_top_k": 8,
+          "model_latency_ms": 48009,
+          "retrieval_latency_ms": 94,
+          "retrieved_chunks": [
+            {
+              "chunk_id": "8103b397bf3687a587a7937f",
+              "source_filename": "RBI_Policy_RAG_Sample.pdf",
+              "score": 0.03252247488101534,
+              "search_source": "keyword+semantic_chroma"
+            },
+            {
+              "chunk_id": "a2e5066008b4d73506a8d293",
+              "source_filename": "RBI_Policy_RAG_Sample.pdf",
+              "score": 0.03252247488101534,
+              "search_source": "keyword+semantic_chroma"
+            },
+            {
+              "chunk_id": "abf49c666f36df8f0bef06a1",
+              "source_filename": "RBI_Policy_RAG_Sample.pdf",
+              "score": 0.031746031746031744,
+              "search_source": "keyword+semantic_chroma"
+            },
+            {
+              "chunk_id": "fbd3e8dd14c36d0ae18678e4",
+              "source_filename": "RBI_Policy_RAG_Sample.pdf",
+              "score": 0.030776515151515152,
+              "search_source": "keyword+semantic_chroma"
+            }
+          ],
+          "tool_calls": [
+            {
+              "tool": "hybrid_search",
+              "result_count": 4,
+              "diagnostics": {
+                "semantic_chunk_ids": [
+                  "8103b397bf3687a587a7937f",
+                  "a2e5066008b4d73506a8d293",
+                  "abf49c666f36df8f0bef06a1",
+                  "8e2cc4cee6d1d88cb4f8d3cd",
+                  "f80e5ddffc53cd3e1d67be32",
+                  "fbd3e8dd14c36d0ae18678e4",
+                  "9fd68bbae3d51bb624f00c1f",
+                  "a111c95af1acdca3dd3f6f86"
+                ],
+                "keyword_chunk_ids": [
+                  "a2e5066008b4d73506a8d293",
+                  "8103b397bf3687a587a7937f",
+                  "abf49c666f36df8f0bef06a1",
+                  "fbd3e8dd14c36d0ae18678e4"
+                ],
+                "fused_chunk_ids": [
+                  "8103b397bf3687a587a7937f",
+                  "a2e5066008b4d73506a8d293",
+                  "abf49c666f36df8f0bef06a1",
+                  "fbd3e8dd14c36d0ae18678e4",
+                  "8e2cc4cee6d1d88cb4f8d3cd",
+                  "f80e5ddffc53cd3e1d67be32",
+                  "9fd68bbae3d51bb624f00c1f",
+                  "a111c95af1acdca3dd3f6f86"
+                ],
+                "first_chunk_ids": [],
+                "final_chunk_ids": [
+                  "8103b397bf3687a587a7937f",
+                  "a2e5066008b4d73506a8d293",
+                  "abf49c666f36df8f0bef06a1",
+                  "fbd3e8dd14c36d0ae18678e4"
+                ]
+              }
+            }
+          ],
+          "retry_count": 0,
+          "evidence_reason": "Hybrid retrieved context sent to the LLM.",
+          "grounding": {
+            "method": "citation_and_lexical_support_proxy",
+            "faithfulness": 1.0,
+            "supported_claims": 1,
+            "rejected_claims": 0,
+            "citation_validity": 1.0,
+            "polarity_consistent": true
+          }
+        },
+        "latency_ms": 49713
+      }
+    },
+    {
+      "question": "What is today's IPL score?",
+      "expected_value": null,
+      "passed": true,
+      "response": {
+        "answer": "I could not find enough information in the uploaded document to answer this.",
+        "conversation_id": "3e8ecb6b-c1f2-4c4b-8b47-9631b31d6593",
+        "message_id": "7f84288f-8d89-4f55-8f16-5c9f97a0dcd3",
+        "model_used": null,
+        "answerable": "unanswerable",
+        "citations": [],
+        "retrieval_metadata": {
+          "evidence_count": 4,
+          "overview": false,
+          "top_k": 4,
+          "vector_top_k": 8,
+          "bm25_top_k": 8,
+          "model_latency_ms": 0,
+          "retrieval_latency_ms": 92,
+          "retrieved_chunks": [
+            {
+              "chunk_id": "a111c95af1acdca3dd3f6f86",
+              "source_filename": "RBI_Policy_RAG_Sample.pdf",
+              "score": 0.03200204813108039,
+              "search_source": "keyword+semantic_chroma"
+            },
+            {
+              "chunk_id": "8103b397bf3687a587a7937f",
+              "source_filename": "RBI_Policy_RAG_Sample.pdf",
+              "score": 0.03200204813108039,
+              "search_source": "keyword+semantic_chroma"
+            },
+            {
+              "chunk_id": "fbd3e8dd14c36d0ae18678e4",
+              "source_filename": "RBI_Policy_RAG_Sample.pdf",
+              "score": 0.03177805800756621,
+              "search_source": "keyword+semantic_chroma"
+            },
+            {
+              "chunk_id": "abf49c666f36df8f0bef06a1",
+              "source_filename": "RBI_Policy_RAG_Sample.pdf",
+              "score": 0.01639344262295082,
+              "search_source": "semantic_chroma"
+            }
+          ],
+          "tool_calls": [
+            {
+              "tool": "hybrid_search",
+              "result_count": 4,
+              "diagnostics": {
+                "semantic_chunk_ids": [
+                  "abf49c666f36df8f0bef06a1",
+                  "8103b397bf3687a587a7937f",
+                  "a111c95af1acdca3dd3f6f86",
+                  "a2e5066008b4d73506a8d293",
+                  "fbd3e8dd14c36d0ae18678e4",
+                  "f80e5ddffc53cd3e1d67be32",
+                  "8e2cc4cee6d1d88cb4f8d3cd",
+                  "9fd68bbae3d51bb624f00c1f"
+                ],
+                "keyword_chunk_ids": [
+                  "fbd3e8dd14c36d0ae18678e4",
+                  "a111c95af1acdca3dd3f6f86",
+                  "8103b397bf3687a587a7937f"
+                ],
+                "fused_chunk_ids": [
+                  "8103b397bf3687a587a7937f",
+                  "a111c95af1acdca3dd3f6f86",
+                  "fbd3e8dd14c36d0ae18678e4",
+                  "abf49c666f36df8f0bef06a1",
+                  "a2e5066008b4d73506a8d293",
+                  "f80e5ddffc53cd3e1d67be32",
+                  "8e2cc4cee6d1d88cb4f8d3cd",
+                  "9fd68bbae3d51bb624f00c1f"
+                ],
+                "first_chunk_ids": [],
+                "final_chunk_ids": [
+                  "a111c95af1acdca3dd3f6f86",
+                  "8103b397bf3687a587a7937f",
+                  "fbd3e8dd14c36d0ae18678e4",
+                  "abf49c666f36df8f0bef06a1"
+                ]
+              }
+            }
+          ],
+          "retry_count": 0,
+          "evidence_reason": "Retrieved context is unrelated to the question.",
+          "grounding": {
+            "method": "citation_and_lexical_support_proxy",
+            "faithfulness": null,
+            "supported_claims": 0
+          }
+        },
+        "latency_ms": 838
+      }
+    }
+  ]
+}

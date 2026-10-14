@@ -1,0 +1,5 @@
+Standard delivery takes 4 business days. Express delivery takes 1 business day.
+
+Orders placed after 17:00 are processed on the next business day.
+
+Shipping is free for orders above 75 dollars.

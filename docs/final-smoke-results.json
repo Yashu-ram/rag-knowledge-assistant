@@ -1,0 +1,110 @@
+{
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "embedding_dimensions": 384,
+  "uploads": [
+    {
+      "filename": "external-orion.pdf",
+      "chunks": 2,
+      "status": "indexed"
+    },
+    {
+      "filename": "external-returns.txt",
+      "chunks": 1,
+      "status": "indexed"
+    },
+    {
+      "filename": "external-service.md",
+      "chunks": 3,
+      "status": "indexed"
+    }
+  ],
+  "checks": [
+    {
+      "question": "What is the Orion press warranty period?",
+      "answer": "The Orion press warranty period is 31 months. [1](#source-335f9b019265473aa72202c4560325a6)",
+      "citations": [
+        {
+          "section": null,
+          "citation_id": 1,
+          "anchor": "source-335f9b019265473aa72202c4560325a6",
+          "context_excerpt": null,
+          "chunk_id": "b949036ead1340f950f7fade",
+          "document_id": "758696e5-00d5-426f-b184-44ece17027db",
+          "source_filename": "external-orion.pdf",
+          "page_number": 1,
+          "excerpt": "The Orion press warranty lasts 31 months."
+        }
+      ],
+      "latency_ms": 16054,
+      "grounding": {
+        "method": "citation_and_lexical_support_proxy",
+        "faithfulness": 0.8333333333333334,
+        "supported_claims": 1,
+        "rejected_claims": 0,
+        "citation_validity": 1.0,
+        "polarity_consistent": true
+      }
+    },
+    {
+      "question": "What is this document about?",
+      "answer": "- The support desk is open Monday through Friday. [1](#source-e557b05bb1924cea9cb6ed5fdb24b255)\n- Repairs require a service ticket. [2](#source-7bdc023d93184caabd753c8724d17f72)\n- Standard delivery takes six days. [3](#source-63eaea40e0d241b3ab958fcd0d9899ff)",
+      "citations": [
+        {
+          "section": "Service policy",
+          "citation_id": 1,
+          "anchor": "source-e557b05bb1924cea9cb6ed5fdb24b255",
+          "context_excerpt": null,
+          "chunk_id": "6579d02ba83646978604b139",
+          "document_id": "7d850f19-c0e5-4958-87b0-603fb241d76e",
+          "source_filename": "external-service.md",
+          "page_number": null,
+          "excerpt": "The support desk is open Monday through Friday."
+        },
+        {
+          "section": "Repairs",
+          "citation_id": 2,
+          "anchor": "source-7bdc023d93184caabd753c8724d17f72",
+          "context_excerpt": null,
+          "chunk_id": "d4239874d8fa117db62752d5",
+          "document_id": "7d850f19-c0e5-4958-87b0-603fb241d76e",
+          "source_filename": "external-service.md",
+          "page_number": null,
+          "excerpt": "Repairs require a service ticket."
+        },
+        {
+          "section": "Delivery",
+          "citation_id": 3,
+          "anchor": "source-63eaea40e0d241b3ab958fcd0d9899ff",
+          "context_excerpt": null,
+          "chunk_id": "fd232a3565a600cbde908c6d",
+          "document_id": "7d850f19-c0e5-4958-87b0-603fb241d76e",
+          "source_filename": "external-service.md",
+          "page_number": null,
+          "excerpt": "Standard delivery takes six days."
+        }
+      ],
+      "latency_ms": 20210,
+      "grounding": {
+        "method": "citation_and_lexical_support_proxy",
+        "faithfulness": 1.0,
+        "supported_claims": 3,
+        "rejected_claims": 3,
+        "summary_source_quote_fallback_points": 3,
+        "citation_validity": 1.0,
+        "polarity_consistent": true
+      }
+    },
+    {
+      "question": "What is today's IPL score?",
+      "answer": "I could not find enough information in the uploaded document to answer this.",
+      "citations": [],
+      "latency_ms": 578,
+      "grounding": {
+        "method": "citation_and_lexical_support_proxy",
+        "faithfulness": null,
+        "supported_claims": 0
+      }
+    }
+  ],
+  "passed": true
+}

@@ -1,0 +1,135 @@
+DOCUQUERY — RELEASE NOTES
+Product: DocuQuery Document Intelligence Platform
+Document type: Release history
+Audience: Customers, administrators, support teams, and developers
+
+About this document
+These release notes describe customer-facing changes, fixes, and known limitations across DocuQuery versions. Version numbers, dates, and changes are sample company documentation created for demonstration and testing; they do not describe a real commercial product.
+
+======================================================================
+Version 1.2.0
+Release date: 2026-09-24
+Release type: Maintenance and reliability release
+======================================================================
+
+New features and changes
+- Added a document status indicator to the workspace so users can see whether a file is processing, ready, or failed.
+- Improved source previews in question-answer results. Users can now see the document name and matching excerpt alongside supported answers.
+- Added clearer validation messages when an upload is rejected because of its file type.
+- Updated the administrator activity log to record document deletion events.
+
+Issues fixed
+- Fixed an issue where the upload page could continue showing “Processing” after a document had finished indexing. The page now refreshes the status correctly.
+- Fixed a bug that caused CSV files containing quoted commas to be split into incorrect columns during import.
+- Fixed a problem where source previews sometimes displayed the wrong section heading after a user replaced a document with a newer version.
+- Fixed a sign-in error that could occur when a user’s session expired while the upload dialog was open.
+- Fixed an issue where deleting a document from the workspace did not immediately remove its result from the recent-document list.
+
+Known limitations
+- Scanned PDFs may not produce searchable text unless OCR has been applied before upload.
+- Large documents can take longer to process during periods of high system load.
+- Changes to a source document require the updated file to be uploaded and indexed before new content can be retrieved.
+
+======================================================================
+Version 1.1.0
+Release date: 2026-08-18
+Release type: Feature release
+======================================================================
+
+New features and changes
+- Added support for uploading Markdown (.md) and JSON (.json) documents.
+- Introduced document collections, allowing teams to group files by project or department.
+- Added a “Copy answer” action to the answer panel.
+- Added a warning before a user deletes a document.
+- Improved keyboard navigation in the document upload form.
+
+Issues fixed
+- Fixed an issue where filenames containing spaces could be displayed incorrectly in the workspace.
+- Fixed a validation bug that accepted an empty question and then returned an unhelpful server error.
+- Fixed inconsistent timestamps shown in document activity history.
+- Fixed a layout issue that made long source excerpts difficult to read on smaller screens.
+
+Known limitations
+- A document can belong to one collection at a time.
+- Collection sharing permissions are managed by workspace administrators.
+
+======================================================================
+Version 1.0.1
+Release date: 2026-07-29
+Release type: Patch release
+======================================================================
+
+Issues fixed
+- Fixed an issue where uploading the same file twice in quick succession could show a duplicate progress notification.
+- Fixed a timeout-handling bug that caused the interface to appear frozen when a status request took too long.
+- Improved the error message displayed when a user attempts to open a document that has been deleted.
+- Corrected a typo in the password-reset confirmation email.
+
+Security and reliability
+- Improved validation of uploaded filenames.
+- Added additional logging for failed document-processing jobs. Logs are intended to help administrators diagnose failures and should not include authentication tokens.
+
+======================================================================
+Version 1.0.0
+Release date: 2026-07-15
+Release type: Initial public release
+======================================================================
+
+Initial capabilities
+- Upload and index supported business documents.
+- Ask natural-language questions about selected documents.
+- View answer source excerpts when supporting content is available.
+- Check document-processing status.
+- Delete documents from a workspace.
+- Authenticate API requests using a bearer token.
+
+Initial supported file formats
+- PDF (.pdf)
+- Markdown (.md)
+- Plain text (.txt)
+- Microsoft Word (.docx)
+- CSV (.csv)
+- JSON (.json)
+
+Initial limitations
+- Scanned PDFs may require OCR.
+- Password-protected documents are not supported.
+- Answers depend on the content and quality of the documents provided.
+
+======================================================================
+Upgrade guidance
+======================================================================
+
+- Users of the hosted workspace do not need to install updates manually.
+- API customers should review the API reference before changing integrations.
+- After replacing or updating a source document, wait until its status is “Ready” before asking questions about the new content.
+- Administrators should communicate planned maintenance windows to workspace users.
+
+======================================================================
+Quick lookup
+======================================================================
+
+Q: Which issue was fixed in version 1.2?
+A: Version 1.2.0 fixed an upload page issue where the status could remain “Processing” after indexing had completed. It also fixed CSV parsing for quoted commas, incorrect source-preview headings after replacing a document, a sign-in error after session expiry during upload, and delayed removal of deleted files from the recent-document list.
+
+Q: When was version 1.2.0 released?
+A: 2026-09-24.
+
+Q: Which version introduced document collections?
+A: Version 1.1.0, released on 2026-08-18.
+
+Q: Which version added Markdown and JSON uploads?
+A: Version 1.1.0.
+
+Q: What was fixed in version 1.0.1?
+A: Version 1.0.1 fixed duplicate progress notifications, a status-request timeout issue, an unclear deleted-document error message, and a typo in the password-reset confirmation email.
+
+Q: When was the initial public release?
+A: Version 1.0.0 was released on 2026-07-15.
+
+Q: What should a user do after replacing a document?
+A: Upload the updated file and wait until indexing is complete and its status is “Ready” before asking questions about its new content.
+
+Document owner: DocuQuery Product Operations
+Document version: 1.0
+Last updated: 2026-10-13

@@ -1,0 +1,288 @@
+{
+  "passed": 3,
+  "total": 3,
+  "answer_relevancy_method": "labeled_supporting_fact_proxy",
+  "mean_answer_relevancy": 1.0,
+  "abstention_accuracy": 1.0,
+  "mean_lexical_faithfulness_proxy": 0.8416666666666667,
+  "faithfulness_limitation": "Lexical overlap and exact citation validity are proxies, not independent semantic entailment evaluation.",
+  "mean_citation_groundedness": 1.0,
+  "embedding_mode": "langchain_huggingface",
+  "selector_mode": "live_llm",
+  "model_warmup_ms": 805,
+  "model_warmed": true,
+  "retrieval_summary": {
+    "semantic": {
+      "mean_precision_at_k": 0.16666666666666666,
+      "mean_recall_at_k": 1.0
+    },
+    "keyword": {
+      "mean_precision_at_k": 0.16666666666666666,
+      "mean_recall_at_k": 1.0
+    },
+    "hybrid_reranked": {
+      "mean_precision_at_k": 0.3333333333333333,
+      "mean_recall_at_k": 1.0
+    }
+  },
+  "under_10_seconds_count": 0,
+  "max_total_latency_ms": 33985,
+  "scored_answers": 3,
+  "results": [
+    {
+      "question": "Which field is returned when creating a ticket?",
+      "answer": "The field returned when creating a ticket is `ticket_id`. [1](#source-fc3e90f9233b4cfdab19e804325dbdb1)",
+      "citations": [
+        {
+          "section": "KiwiDesk API Reference",
+          "citation_id": 1,
+          "anchor": "source-fc3e90f9233b4cfdab19e804325dbdb1",
+          "context_excerpt": null,
+          "chunk_id": "3953a37100637f644b804243",
+          "document_id": "a2cfab56-2b80-4326-ad84-d84c3db7e8b7",
+          "source_filename": "api_reference.md",
+          "page_number": null,
+          "excerpt": "The `POST /api/v2/tickets` endpoint creates a ticket and returns the identifier field `ticket_id`."
+        }
+      ],
+      "expected_answerability": "answerable",
+      "actual_answerability": "answerable",
+      "expected_source": "api_reference.md",
+      "citation_sources": [
+        "api_reference.md"
+      ],
+      "answerability_ok": true,
+      "source_ok": true,
+      "answer_support_ok": true,
+      "answer_polarity_ok": true,
+      "answer_content_ok": true,
+      "completeness": {
+        "requested_parts": [],
+        "supported_parts": [],
+        "covered_parts": [],
+        "missing_supported_parts": [],
+        "unavailable_parts": []
+      },
+      "synthesis_retries": 0,
+      "answer_relevancy": 1.0,
+      "abstention_correct": true,
+      "faithfulness": 0.75,
+      "faithfulness_method": "citation_and_lexical_support_proxy",
+      "citation_groundedness": 1.0,
+      "citation_precision": 1.0,
+      "one_line_refusal": false,
+      "generation_model": "qwen2.5:1.5b",
+      "retrieval": {
+        "semantic": {
+          "k": 8,
+          "precision_at_k": 0.125,
+          "retrieved_precision": 0.125,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 1,
+          "relevant_total": 1,
+          "retrieved_total": 8
+        },
+        "keyword": {
+          "k": 8,
+          "precision_at_k": 0.125,
+          "retrieved_precision": 0.125,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 1,
+          "relevant_total": 1,
+          "retrieved_total": 8
+        },
+        "hybrid_reranked": {
+          "k": 4,
+          "precision_at_k": 0.25,
+          "retrieved_precision": 0.25,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 1,
+          "relevant_total": 1,
+          "retrieved_total": 4
+        }
+      },
+      "retrieval_latency_ms": 175,
+      "generation_latency_ms": 29372,
+      "total_latency_ms": 31656,
+      "under_10_seconds": false,
+      "passed": true
+    },
+    {
+      "question": "What query parameter does the search endpoint accept?",
+      "answer": "The `GET /api/v2/search` endpoint accepts the query parameter `q` and an optional `limit` parameter. [1](#source-490a54e7a33240e99237795d92839c01)",
+      "citations": [
+        {
+          "section": "KiwiDesk API Reference",
+          "citation_id": 1,
+          "anchor": "source-490a54e7a33240e99237795d92839c01",
+          "context_excerpt": null,
+          "chunk_id": "923ffc9c4e7ce604f0c94b64",
+          "document_id": "a2cfab56-2b80-4326-ad84-d84c3db7e8b7",
+          "source_filename": "api_reference.md",
+          "page_number": null,
+          "excerpt": "The `GET /api/v2/search` endpoint accepts the query parameter `q` and an optional `limit` parameter."
+        }
+      ],
+      "expected_answerability": "answerable",
+      "actual_answerability": "answerable",
+      "expected_source": "api_reference.md",
+      "citation_sources": [
+        "api_reference.md"
+      ],
+      "answerability_ok": true,
+      "source_ok": true,
+      "answer_support_ok": true,
+      "answer_polarity_ok": true,
+      "answer_content_ok": true,
+      "completeness": {
+        "requested_parts": [],
+        "supported_parts": [],
+        "covered_parts": [],
+        "missing_supported_parts": [],
+        "unavailable_parts": []
+      },
+      "synthesis_retries": 0,
+      "answer_relevancy": 1.0,
+      "abstention_correct": true,
+      "faithfulness": 1.0,
+      "faithfulness_method": "citation_and_lexical_support_proxy",
+      "citation_groundedness": 1.0,
+      "citation_precision": 1.0,
+      "one_line_refusal": false,
+      "generation_model": "qwen2.5:1.5b",
+      "retrieval": {
+        "semantic": {
+          "k": 8,
+          "precision_at_k": 0.25,
+          "retrieved_precision": 0.25,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 2,
+          "relevant_total": 2,
+          "retrieved_total": 8
+        },
+        "keyword": {
+          "k": 8,
+          "precision_at_k": 0.25,
+          "retrieved_precision": 0.25,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 2,
+          "relevant_total": 2,
+          "retrieved_total": 8
+        },
+        "hybrid_reranked": {
+          "k": 4,
+          "precision_at_k": 0.5,
+          "retrieved_precision": 0.5,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 2,
+          "relevant_total": 2,
+          "retrieved_total": 4
+        }
+      },
+      "retrieval_latency_ms": 82,
+      "generation_latency_ms": 32242,
+      "total_latency_ms": 33985,
+      "under_10_seconds": false,
+      "passed": true
+    },
+    {
+      "question": "Explain warranty period and standard delivery time.",
+      "answer": "The warranty period is 31 months. [1](#source-108428a2626b4669933f27e78de8fea5)\n\nThe standard delivery time is 6 days. [2](#source-8e0b24ddc3124020b4b71d2206ec9479)",
+      "citations": [
+        {
+          "section": null,
+          "citation_id": 1,
+          "anchor": "source-108428a2626b4669933f27e78de8fea5",
+          "context_excerpt": null,
+          "chunk_id": "518f253ffa945808cf07666a",
+          "document_id": "cb24f0d7-191f-4584-bbc4-f145cc933646",
+          "source_filename": "warranty.txt",
+          "page_number": null,
+          "excerpt": "The warranty lasts 31 months."
+        },
+        {
+          "section": null,
+          "citation_id": 2,
+          "anchor": "source-8e0b24ddc3124020b4b71d2206ec9479",
+          "context_excerpt": null,
+          "chunk_id": "fa7847bac585dbb76133437d",
+          "document_id": "4821ffc9-eca3-49a7-9140-7f33f3fcd6a7",
+          "source_filename": "shipping.txt",
+          "page_number": null,
+          "excerpt": "Standard delivery takes 6 days."
+        }
+      ],
+      "expected_answerability": "answerable",
+      "actual_answerability": "answerable",
+      "expected_source": "warranty.txt",
+      "citation_sources": [
+        "shipping.txt",
+        "warranty.txt"
+      ],
+      "answerability_ok": true,
+      "source_ok": true,
+      "answer_support_ok": true,
+      "answer_polarity_ok": true,
+      "answer_content_ok": true,
+      "completeness": {
+        "requested_parts": [
+          "warranty period",
+          "standard delivery time"
+        ],
+        "supported_parts": [
+          "warranty period",
+          "standard delivery time"
+        ],
+        "covered_parts": [
+          "warranty period",
+          "standard delivery time"
+        ],
+        "missing_supported_parts": [],
+        "unavailable_parts": []
+      },
+      "synthesis_retries": 0,
+      "answer_relevancy": 1.0,
+      "abstention_correct": true,
+      "faithfulness": 0.775,
+      "faithfulness_method": "citation_and_lexical_support_proxy",
+      "citation_groundedness": 1.0,
+      "citation_precision": 1.0,
+      "one_line_refusal": false,
+      "generation_model": "qwen2.5:1.5b",
+      "retrieval": {
+        "semantic": {
+          "k": 8,
+          "precision_at_k": 0.125,
+          "retrieved_precision": 0.125,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 1,
+          "relevant_total": 1,
+          "retrieved_total": 8
+        },
+        "keyword": {
+          "k": 8,
+          "precision_at_k": 0.125,
+          "retrieved_precision": 0.125,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 1,
+          "relevant_total": 1,
+          "retrieved_total": 8
+        },
+        "hybrid_reranked": {
+          "k": 4,
+          "precision_at_k": 0.25,
+          "retrieved_precision": 0.25,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 1,
+          "relevant_total": 1,
+          "retrieved_total": 4
+        }
+      },
+      "retrieval_latency_ms": 94,
+      "generation_latency_ms": 22843,
+      "total_latency_ms": 24465,
+      "under_10_seconds": false,
+      "passed": true
+    }
+  ]
+}

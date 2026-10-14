@@ -1,0 +1,1451 @@
+{
+  "passed": 20,
+  "total": 20,
+  "answer_relevancy_method": "labeled_supporting_fact_proxy",
+  "mean_answer_relevancy": 1.0,
+  "abstention_accuracy": 1.0,
+  "mean_lexical_faithfulness_proxy": 0.9521929824561405,
+  "faithfulness_limitation": "Lexical overlap and exact citation validity are proxies, not independent semantic entailment evaluation.",
+  "mean_citation_groundedness": 1.0,
+  "embedding_mode": "langchain_huggingface",
+  "selector_mode": "live_llm",
+  "model_warmup_ms": 299,
+  "model_warmed": true,
+  "retrieval_summary": {
+    "semantic": {
+      "mean_precision_at_k": 0.3333333333333333,
+      "mean_recall_at_k": 1.0
+    },
+    "keyword": {
+      "mean_precision_at_k": 0.3333333333333333,
+      "mean_recall_at_k": 1.0
+    },
+    "hybrid_reranked": {
+      "mean_precision_at_k": 0.6388888888888888,
+      "mean_recall_at_k": 0.9814814814814814
+    }
+  },
+  "under_10_seconds_count": 2,
+  "max_total_latency_ms": 20765,
+  "scored_answers": 18,
+  "results": [
+    {
+      "question": "What release of KiwiDesk is currently supported?",
+      "answer": "The current supported release is KiwiDesk 4.2. [1](#source-216a92b4e97c4a0299cd7fb65bf5cc3f)",
+      "citations": [
+        {
+          "section": "KiwiDesk Product Guide",
+          "citation_id": 1,
+          "anchor": "source-216a92b4e97c4a0299cd7fb65bf5cc3f",
+          "context_excerpt": null,
+          "chunk_id": "1724a63578b2f65610289cc2",
+          "document_id": "ca29ca91-0dcd-462c-af81-29c8407cf7f9",
+          "source_filename": "product_guide.md",
+          "page_number": null,
+          "excerpt": "The current supported release is KiwiDesk 4.2."
+        }
+      ],
+      "expected_answerability": "answerable",
+      "actual_answerability": "answerable",
+      "expected_source": "product_guide.md",
+      "citation_sources": [
+        "product_guide.md"
+      ],
+      "answerability_ok": true,
+      "source_ok": true,
+      "answer_support_ok": true,
+      "answer_polarity_ok": true,
+      "answer_relevancy": 1.0,
+      "abstention_correct": true,
+      "faithfulness": 1.0,
+      "faithfulness_method": "citation_and_lexical_support_proxy",
+      "citation_groundedness": 1.0,
+      "citation_precision": 1.0,
+      "one_line_refusal": false,
+      "generation_model": "qwen2.5:1.5b",
+      "retrieval": {
+        "semantic": {
+          "k": 8,
+          "precision_at_k": 0.25,
+          "retrieved_precision": 0.25,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 2,
+          "relevant_total": 2,
+          "retrieved_total": 8
+        },
+        "keyword": {
+          "k": 8,
+          "precision_at_k": 0.25,
+          "retrieved_precision": 0.25,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 2,
+          "relevant_total": 2,
+          "retrieved_total": 8
+        },
+        "hybrid_reranked": {
+          "k": 4,
+          "precision_at_k": 0.5,
+          "retrieved_precision": 0.5,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 2,
+          "relevant_total": 2,
+          "retrieved_total": 4
+        }
+      },
+      "retrieval_latency_ms": 82,
+      "generation_latency_ms": 14872,
+      "total_latency_ms": 15906,
+      "under_10_seconds": false,
+      "passed": true
+    },
+    {
+      "question": "What does Smart Inbox route by?",
+      "answer": "by urgency, account tier, and language [1](#source-463503514a3846e081761e9baa109316)",
+      "citations": [
+        {
+          "section": "KiwiDesk Product Guide",
+          "citation_id": 1,
+          "anchor": "source-463503514a3846e081761e9baa109316",
+          "context_excerpt": null,
+          "chunk_id": "73f27913898b47b114e786de",
+          "document_id": "ca29ca91-0dcd-462c-af81-29c8407cf7f9",
+          "source_filename": "product_guide.md",
+          "page_number": null,
+          "excerpt": "The Smart Inbox feature routes incoming customer messages by urgency, account tier, and language."
+        }
+      ],
+      "expected_answerability": "answerable",
+      "actual_answerability": "answerable",
+      "expected_source": "product_guide.md",
+      "citation_sources": [
+        "product_guide.md"
+      ],
+      "answerability_ok": true,
+      "source_ok": true,
+      "answer_support_ok": true,
+      "answer_polarity_ok": true,
+      "answer_relevancy": 1.0,
+      "abstention_correct": true,
+      "faithfulness": 1.0,
+      "faithfulness_method": "citation_and_lexical_support_proxy",
+      "citation_groundedness": 1.0,
+      "citation_precision": 1.0,
+      "one_line_refusal": false,
+      "generation_model": "qwen2.5:1.5b",
+      "retrieval": {
+        "semantic": {
+          "k": 8,
+          "precision_at_k": 0.375,
+          "retrieved_precision": 0.375,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 3,
+          "relevant_total": 3,
+          "retrieved_total": 8
+        },
+        "keyword": {
+          "k": 8,
+          "precision_at_k": 0.375,
+          "retrieved_precision": 0.5,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 3,
+          "relevant_total": 3,
+          "retrieved_total": 6
+        },
+        "hybrid_reranked": {
+          "k": 4,
+          "precision_at_k": 0.75,
+          "retrieved_precision": 0.75,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 3,
+          "relevant_total": 3,
+          "retrieved_total": 4
+        }
+      },
+      "retrieval_latency_ms": 50,
+      "generation_latency_ms": 10662,
+      "total_latency_ms": 11490,
+      "under_10_seconds": false,
+      "passed": true
+    },
+    {
+      "question": "Which setting is required for Smart Inbox?",
+      "answer": "The Smart Inbox feature requires the `routing.ai.enabled` setting. [1](#source-6fb0b9d9a81348968e37e3241d5ff4d1)",
+      "citations": [
+        {
+          "section": "KiwiDesk Product Guide",
+          "citation_id": 1,
+          "anchor": "source-6fb0b9d9a81348968e37e3241d5ff4d1",
+          "context_excerpt": null,
+          "chunk_id": "b85680c3f941c07c87403321",
+          "document_id": "ca29ca91-0dcd-462c-af81-29c8407cf7f9",
+          "source_filename": "product_guide.md",
+          "page_number": null,
+          "excerpt": "Smart Inbox requires the `routing.ai.enabled` setting."
+        }
+      ],
+      "expected_answerability": "answerable",
+      "actual_answerability": "answerable",
+      "expected_source": "product_guide.md",
+      "citation_sources": [
+        "product_guide.md"
+      ],
+      "answerability_ok": true,
+      "source_ok": true,
+      "answer_support_ok": true,
+      "answer_polarity_ok": true,
+      "answer_relevancy": 1.0,
+      "abstention_correct": true,
+      "faithfulness": 1.0,
+      "faithfulness_method": "citation_and_lexical_support_proxy",
+      "citation_groundedness": 1.0,
+      "citation_precision": 1.0,
+      "one_line_refusal": false,
+      "generation_model": "qwen2.5:1.5b",
+      "retrieval": {
+        "semantic": {
+          "k": 8,
+          "precision_at_k": 0.5,
+          "retrieved_precision": 0.5,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 4,
+          "relevant_total": 4,
+          "retrieved_total": 8
+        },
+        "keyword": {
+          "k": 8,
+          "precision_at_k": 0.5,
+          "retrieved_precision": 0.5,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 4,
+          "relevant_total": 4,
+          "retrieved_total": 8
+        },
+        "hybrid_reranked": {
+          "k": 4,
+          "precision_at_k": 1.0,
+          "retrieved_precision": 1.0,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 4,
+          "relevant_total": 4,
+          "retrieved_total": 4
+        }
+      },
+      "retrieval_latency_ms": 61,
+      "generation_latency_ms": 13663,
+      "total_latency_ms": 14599,
+      "under_10_seconds": false,
+      "passed": true
+    },
+    {
+      "question": "Does the export feature support XML?",
+      "answer": "XML export is not supported. [1](#source-5fd91217023e4e548e844e2744277ab5)",
+      "citations": [
+        {
+          "section": "KiwiDesk Product Guide",
+          "citation_id": 1,
+          "anchor": "source-5fd91217023e4e548e844e2744277ab5",
+          "context_excerpt": null,
+          "chunk_id": "90df0e796aacae65e73054f6",
+          "document_id": "ca29ca91-0dcd-462c-af81-29c8407cf7f9",
+          "source_filename": "product_guide.md",
+          "page_number": null,
+          "excerpt": "XML export is not supported."
+        }
+      ],
+      "expected_answerability": "answerable",
+      "actual_answerability": "answerable",
+      "expected_source": "product_guide.md",
+      "citation_sources": [
+        "product_guide.md"
+      ],
+      "answerability_ok": true,
+      "source_ok": true,
+      "answer_support_ok": true,
+      "answer_polarity_ok": true,
+      "answer_relevancy": 1.0,
+      "abstention_correct": true,
+      "faithfulness": 1.0,
+      "faithfulness_method": "citation_and_lexical_support_proxy",
+      "citation_groundedness": 1.0,
+      "citation_precision": 1.0,
+      "one_line_refusal": false,
+      "generation_model": "qwen2.5:1.5b",
+      "retrieval": {
+        "semantic": {
+          "k": 8,
+          "precision_at_k": 0.75,
+          "retrieved_precision": 0.75,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 6,
+          "relevant_total": 6,
+          "retrieved_total": 8
+        },
+        "keyword": {
+          "k": 8,
+          "precision_at_k": 0.75,
+          "retrieved_precision": 0.75,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 6,
+          "relevant_total": 6,
+          "retrieved_total": 8
+        },
+        "hybrid_reranked": {
+          "k": 4,
+          "precision_at_k": 1.0,
+          "retrieved_precision": 1.0,
+          "recall_at_k": 0.6666666666666666,
+          "relevant_retrieved": 4,
+          "relevant_total": 6,
+          "retrieved_total": 4
+        }
+      },
+      "retrieval_latency_ms": 96,
+      "generation_latency_ms": 12540,
+      "total_latency_ms": 14575,
+      "under_10_seconds": false,
+      "passed": true
+    },
+    {
+      "question": "What should I check for KD-401?",
+      "answer": "Check that the account has document indexing enabled. [1](#source-34fb4bfe35f74227968511d88f4d30c9)\n\nIf search returns no answers, first confirm that at least one document has status indexed. [2](#source-d2508ceba94544a79277acdc3ae0d1d7)",
+      "citations": [
+        {
+          "section": null,
+          "citation_id": 1,
+          "anchor": "source-34fb4bfe35f74227968511d88f4d30c9",
+          "context_excerpt": null,
+          "chunk_id": "7af70f9a0742a1c5d159307f",
+          "document_id": "be824797-c897-45e7-8f5b-904c3d19a824",
+          "source_filename": "troubleshooting_faq.txt",
+          "page_number": null,
+          "excerpt": "If document upload fails with error KD-401, check that the account has document indexing enabled."
+        },
+        {
+          "section": null,
+          "citation_id": 2,
+          "anchor": "source-d2508ceba94544a79277acdc3ae0d1d7",
+          "context_excerpt": null,
+          "chunk_id": "26cecbf6dfc7afc6d169e9b3",
+          "document_id": "be824797-c897-45e7-8f5b-904c3d19a824",
+          "source_filename": "troubleshooting_faq.txt",
+          "page_number": null,
+          "excerpt": "If search returns no answers, first confirm that at least one document has status indexed."
+        }
+      ],
+      "expected_answerability": "answerable",
+      "actual_answerability": "answerable",
+      "expected_source": "troubleshooting_faq.txt",
+      "citation_sources": [
+        "troubleshooting_faq.txt"
+      ],
+      "answerability_ok": true,
+      "source_ok": true,
+      "answer_support_ok": true,
+      "answer_polarity_ok": true,
+      "answer_relevancy": 1.0,
+      "abstention_correct": true,
+      "faithfulness": 1.0,
+      "faithfulness_method": "citation_and_lexical_support_proxy",
+      "citation_groundedness": 1.0,
+      "citation_precision": 1.0,
+      "one_line_refusal": false,
+      "generation_model": "qwen2.5:1.5b",
+      "retrieval": {
+        "semantic": {
+          "k": 8,
+          "precision_at_k": 0.25,
+          "retrieved_precision": 0.25,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 2,
+          "relevant_total": 2,
+          "retrieved_total": 8
+        },
+        "keyword": {
+          "k": 8,
+          "precision_at_k": 0.25,
+          "retrieved_precision": 0.25,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 2,
+          "relevant_total": 2,
+          "retrieved_total": 8
+        },
+        "hybrid_reranked": {
+          "k": 4,
+          "precision_at_k": 0.5,
+          "retrieved_precision": 0.5,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 2,
+          "relevant_total": 2,
+          "retrieved_total": 4
+        }
+      },
+      "retrieval_latency_ms": 52,
+      "generation_latency_ms": 15307,
+      "total_latency_ms": 16304,
+      "under_10_seconds": false,
+      "passed": true
+    },
+    {
+      "question": "What is the default upload size limit?",
+      "answer": "The maximum supported local upload size in the default configuration is 20 MB. [1](#source-f50f873a1cde4c2382e787f7676e1e2e)",
+      "citations": [
+        {
+          "section": null,
+          "citation_id": 1,
+          "anchor": "source-f50f873a1cde4c2382e787f7676e1e2e",
+          "context_excerpt": null,
+          "chunk_id": "7af70f9a0742a1c5d159307f",
+          "document_id": "be824797-c897-45e7-8f5b-904c3d19a824",
+          "source_filename": "troubleshooting_faq.txt",
+          "page_number": null,
+          "excerpt": "The maximum supported local upload size in the default configuration is 20 MB."
+        }
+      ],
+      "expected_answerability": "answerable",
+      "actual_answerability": "answerable",
+      "expected_source": "troubleshooting_faq.txt",
+      "citation_sources": [
+        "troubleshooting_faq.txt"
+      ],
+      "answerability_ok": true,
+      "source_ok": true,
+      "answer_support_ok": true,
+      "answer_polarity_ok": true,
+      "answer_relevancy": 1.0,
+      "abstention_correct": true,
+      "faithfulness": 1.0,
+      "faithfulness_method": "citation_and_lexical_support_proxy",
+      "citation_groundedness": 1.0,
+      "citation_precision": 1.0,
+      "one_line_refusal": false,
+      "generation_model": "qwen2.5:1.5b",
+      "retrieval": {
+        "semantic": {
+          "k": 8,
+          "precision_at_k": 0.5,
+          "retrieved_precision": 0.5,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 4,
+          "relevant_total": 4,
+          "retrieved_total": 8
+        },
+        "keyword": {
+          "k": 8,
+          "precision_at_k": 0.5,
+          "retrieved_precision": 0.5,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 4,
+          "relevant_total": 4,
+          "retrieved_total": 8
+        },
+        "hybrid_reranked": {
+          "k": 4,
+          "precision_at_k": 1.0,
+          "retrieved_precision": 1.0,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 4,
+          "relevant_total": 4,
+          "retrieved_total": 4
+        }
+      },
+      "retrieval_latency_ms": 51,
+      "generation_latency_ms": 13089,
+      "total_latency_ms": 14044,
+      "under_10_seconds": false,
+      "passed": true
+    },
+    {
+      "question": "What should I confirm when search returns no answers?",
+      "answer": "If search returns no answers, first confirm that at least one document has status indexed. [1](#source-fabeaa95c641495d917620dd23b78718)\n\nThe maximum supported local upload size in the default configuration is 20 MB. [2](#source-afad46d812d64eb598cc006f16a1bcae)",
+      "citations": [
+        {
+          "section": null,
+          "citation_id": 1,
+          "anchor": "source-fabeaa95c641495d917620dd23b78718",
+          "context_excerpt": null,
+          "chunk_id": "0c37dd93f7abc9da9d720ae2",
+          "document_id": "be824797-c897-45e7-8f5b-904c3d19a824",
+          "source_filename": "troubleshooting_faq.txt",
+          "page_number": null,
+          "excerpt": "If search returns no answers, first confirm that at least one document has status indexed."
+        },
+        {
+          "section": null,
+          "citation_id": 2,
+          "anchor": "source-afad46d812d64eb598cc006f16a1bcae",
+          "context_excerpt": null,
+          "chunk_id": "26cecbf6dfc7afc6d169e9b3",
+          "document_id": "be824797-c897-45e7-8f5b-904c3d19a824",
+          "source_filename": "troubleshooting_faq.txt",
+          "page_number": null,
+          "excerpt": "The maximum supported local upload size in the default configuration is 20 MB."
+        }
+      ],
+      "expected_answerability": "answerable",
+      "actual_answerability": "answerable",
+      "expected_source": "troubleshooting_faq.txt",
+      "citation_sources": [
+        "troubleshooting_faq.txt"
+      ],
+      "answerability_ok": true,
+      "source_ok": true,
+      "answer_support_ok": true,
+      "answer_polarity_ok": true,
+      "answer_relevancy": 1.0,
+      "abstention_correct": true,
+      "faithfulness": 1.0,
+      "faithfulness_method": "citation_and_lexical_support_proxy",
+      "citation_groundedness": 1.0,
+      "citation_precision": 1.0,
+      "one_line_refusal": false,
+      "generation_model": "qwen2.5:1.5b",
+      "retrieval": {
+        "semantic": {
+          "k": 8,
+          "precision_at_k": 0.375,
+          "retrieved_precision": 0.375,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 3,
+          "relevant_total": 3,
+          "retrieved_total": 8
+        },
+        "keyword": {
+          "k": 8,
+          "precision_at_k": 0.375,
+          "retrieved_precision": 0.42857142857142855,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 3,
+          "relevant_total": 3,
+          "retrieved_total": 7
+        },
+        "hybrid_reranked": {
+          "k": 4,
+          "precision_at_k": 0.75,
+          "retrieved_precision": 0.75,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 3,
+          "relevant_total": 3,
+          "retrieved_total": 4
+        }
+      },
+      "retrieval_latency_ms": 50,
+      "generation_latency_ms": 16784,
+      "total_latency_ms": 17755,
+      "under_10_seconds": false,
+      "passed": true
+    },
+    {
+      "question": "What is the KiwiDesk API base path?",
+      "answer": "The KiwiDesk API base path is `/api/v2`. [1](#source-6a87df74240e48b69dc1487584f5004b)",
+      "citations": [
+        {
+          "section": "KiwiDesk API Reference",
+          "citation_id": 1,
+          "anchor": "source-6a87df74240e48b69dc1487584f5004b",
+          "context_excerpt": null,
+          "chunk_id": "1fe41ff56ad3ccaf05d48228",
+          "document_id": "39f316a5-4b00-465f-81a2-a9da40a891cb",
+          "source_filename": "api_reference.md",
+          "page_number": null,
+          "excerpt": "The fictional KiwiDesk API base path is `/api/v2`."
+        }
+      ],
+      "expected_answerability": "answerable",
+      "actual_answerability": "answerable",
+      "expected_source": "api_reference.md",
+      "citation_sources": [
+        "api_reference.md"
+      ],
+      "answerability_ok": true,
+      "source_ok": true,
+      "answer_support_ok": true,
+      "answer_polarity_ok": true,
+      "answer_relevancy": 1.0,
+      "abstention_correct": true,
+      "faithfulness": 1.0,
+      "faithfulness_method": "citation_and_lexical_support_proxy",
+      "citation_groundedness": 1.0,
+      "citation_precision": 1.0,
+      "one_line_refusal": false,
+      "generation_model": "qwen2.5:1.5b",
+      "retrieval": {
+        "semantic": {
+          "k": 8,
+          "precision_at_k": 0.125,
+          "retrieved_precision": 0.125,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 1,
+          "relevant_total": 1,
+          "retrieved_total": 8
+        },
+        "keyword": {
+          "k": 8,
+          "precision_at_k": 0.125,
+          "retrieved_precision": 0.125,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 1,
+          "relevant_total": 1,
+          "retrieved_total": 8
+        },
+        "hybrid_reranked": {
+          "k": 4,
+          "precision_at_k": 0.25,
+          "retrieved_precision": 0.25,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 1,
+          "relevant_total": 1,
+          "retrieved_total": 4
+        }
+      },
+      "retrieval_latency_ms": 50,
+      "generation_latency_ms": 14024,
+      "total_latency_ms": 14961,
+      "under_10_seconds": false,
+      "passed": true
+    },
+    {
+      "question": "Which field is returned when creating a ticket?",
+      "answer": "The field returned when creating a ticket is 'ticket_id'. [1](#source-31238196f2d7448a82c2a246a7c6ddd2)",
+      "citations": [
+        {
+          "section": "KiwiDesk API Reference",
+          "citation_id": 1,
+          "anchor": "source-31238196f2d7448a82c2a246a7c6ddd2",
+          "context_excerpt": null,
+          "chunk_id": "1fe41ff56ad3ccaf05d48228",
+          "document_id": "39f316a5-4b00-465f-81a2-a9da40a891cb",
+          "source_filename": "api_reference.md",
+          "page_number": null,
+          "excerpt": "The `POST /api/v2/tickets` endpoint creates a ticket and returns the identifier field `ticket_id`."
+        }
+      ],
+      "expected_answerability": "answerable",
+      "actual_answerability": "answerable",
+      "expected_source": "api_reference.md",
+      "citation_sources": [
+        "api_reference.md"
+      ],
+      "answerability_ok": true,
+      "source_ok": true,
+      "answer_support_ok": true,
+      "answer_polarity_ok": true,
+      "answer_relevancy": 1.0,
+      "abstention_correct": true,
+      "faithfulness": 0.75,
+      "faithfulness_method": "citation_and_lexical_support_proxy",
+      "citation_groundedness": 1.0,
+      "citation_precision": 1.0,
+      "one_line_refusal": false,
+      "generation_model": "qwen2.5:1.5b",
+      "retrieval": {
+        "semantic": {
+          "k": 8,
+          "precision_at_k": 0.125,
+          "retrieved_precision": 0.125,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 1,
+          "relevant_total": 1,
+          "retrieved_total": 8
+        },
+        "keyword": {
+          "k": 8,
+          "precision_at_k": 0.125,
+          "retrieved_precision": 0.125,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 1,
+          "relevant_total": 1,
+          "retrieved_total": 8
+        },
+        "hybrid_reranked": {
+          "k": 4,
+          "precision_at_k": 0.25,
+          "retrieved_precision": 0.25,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 1,
+          "relevant_total": 1,
+          "retrieved_total": 4
+        }
+      },
+      "retrieval_latency_ms": 52,
+      "generation_latency_ms": 14635,
+      "total_latency_ms": 15614,
+      "under_10_seconds": false,
+      "passed": true
+    },
+    {
+      "question": "What query parameter does the search endpoint accept?",
+      "answer": "The query parameter `q` and an optional `limit` parameter. [1](#source-b660528d759449228f6fd715a971fd66)",
+      "citations": [
+        {
+          "section": "KiwiDesk API Reference",
+          "citation_id": 1,
+          "anchor": "source-b660528d759449228f6fd715a971fd66",
+          "context_excerpt": null,
+          "chunk_id": "ddccd3eb75eba4a907f3837d",
+          "document_id": "39f316a5-4b00-465f-81a2-a9da40a891cb",
+          "source_filename": "api_reference.md",
+          "page_number": null,
+          "excerpt": "The `GET /api/v2/search` endpoint accepts the query parameter `q` and an optional `limit` parameter."
+        }
+      ],
+      "expected_answerability": "answerable",
+      "actual_answerability": "answerable",
+      "expected_source": "api_reference.md",
+      "citation_sources": [
+        "api_reference.md"
+      ],
+      "answerability_ok": true,
+      "source_ok": true,
+      "answer_support_ok": true,
+      "answer_polarity_ok": true,
+      "answer_relevancy": 1.0,
+      "abstention_correct": true,
+      "faithfulness": 1.0,
+      "faithfulness_method": "citation_and_lexical_support_proxy",
+      "citation_groundedness": 1.0,
+      "citation_precision": 1.0,
+      "one_line_refusal": false,
+      "generation_model": "qwen2.5:1.5b",
+      "retrieval": {
+        "semantic": {
+          "k": 8,
+          "precision_at_k": 0.25,
+          "retrieved_precision": 0.25,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 2,
+          "relevant_total": 2,
+          "retrieved_total": 8
+        },
+        "keyword": {
+          "k": 8,
+          "precision_at_k": 0.25,
+          "retrieved_precision": 0.25,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 2,
+          "relevant_total": 2,
+          "retrieved_total": 8
+        },
+        "hybrid_reranked": {
+          "k": 4,
+          "precision_at_k": 0.5,
+          "retrieved_precision": 0.5,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 2,
+          "relevant_total": 2,
+          "retrieved_total": 4
+        }
+      },
+      "retrieval_latency_ms": 51,
+      "generation_latency_ms": 14267,
+      "total_latency_ms": 15218,
+      "under_10_seconds": false,
+      "passed": true
+    },
+    {
+      "question": "What is the default API search limit?",
+      "answer": "The default API search limit is 25. [1](#source-b5a15d438dad4e1d90e56f8c77c342e8)\n\nThe default limit for the `GET /api/v2/search` endpoint is 25. [2](#source-e5084b618e0143748ba2864f32794f61)",
+      "citations": [
+        {
+          "section": "KiwiDesk API Reference",
+          "citation_id": 1,
+          "anchor": "source-b5a15d438dad4e1d90e56f8c77c342e8",
+          "context_excerpt": null,
+          "chunk_id": "ddccd3eb75eba4a907f3837d",
+          "document_id": "39f316a5-4b00-465f-81a2-a9da40a891cb",
+          "source_filename": "api_reference.md",
+          "page_number": null,
+          "excerpt": "The default limit is 25."
+        },
+        {
+          "section": "KiwiDesk API Reference",
+          "citation_id": 2,
+          "anchor": "source-e5084b618e0143748ba2864f32794f61",
+          "context_excerpt": null,
+          "chunk_id": "1fe41ff56ad3ccaf05d48228",
+          "document_id": "39f316a5-4b00-465f-81a2-a9da40a891cb",
+          "source_filename": "api_reference.md",
+          "page_number": null,
+          "excerpt": "The fictional KiwiDesk API base path is `/api/v2`.\n\nThe `POST /api/v2/tickets` endpoint creates a ticket and returns the identifier field `ticket_id`.\n\nThe `GET /api/v2/search` endpoint accepts the query parameter `q` and an optional `limit` parameter. The default limit is 25."
+        }
+      ],
+      "expected_answerability": "answerable",
+      "actual_answerability": "answerable",
+      "expected_source": "api_reference.md",
+      "citation_sources": [
+        "api_reference.md"
+      ],
+      "answerability_ok": true,
+      "source_ok": true,
+      "answer_support_ok": true,
+      "answer_polarity_ok": true,
+      "answer_relevancy": 1.0,
+      "abstention_correct": true,
+      "faithfulness": 0.75,
+      "faithfulness_method": "citation_and_lexical_support_proxy",
+      "citation_groundedness": 1.0,
+      "citation_precision": 1.0,
+      "one_line_refusal": false,
+      "generation_model": "qwen2.5:1.5b",
+      "retrieval": {
+        "semantic": {
+          "k": 8,
+          "precision_at_k": 0.375,
+          "retrieved_precision": 0.375,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 3,
+          "relevant_total": 3,
+          "retrieved_total": 8
+        },
+        "keyword": {
+          "k": 8,
+          "precision_at_k": 0.375,
+          "retrieved_precision": 0.375,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 3,
+          "relevant_total": 3,
+          "retrieved_total": 8
+        },
+        "hybrid_reranked": {
+          "k": 4,
+          "precision_at_k": 0.75,
+          "retrieved_precision": 0.75,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 3,
+          "relevant_total": 3,
+          "retrieved_total": 4
+        }
+      },
+      "retrieval_latency_ms": 50,
+      "generation_latency_ms": 16179,
+      "total_latency_ms": 17165,
+      "under_10_seconds": false,
+      "passed": true
+    },
+    {
+      "question": "Which workspace header should API clients send?",
+      "answer": "API clients should send the `X-KiwiDesk-Workspace` header with each request. [1](#source-95eb08febc2448479987cba83c757935)\n\nThe `GET /api/v2/search` endpoint accepts the query parameter `q` and an optional `limit` parameter. The default limit is 25. API clients should send the `X-KiwiDesk-Workspace` header with each request. [2](#source-05a2a054e9cc4f6b9ccddf6aa82d5329)",
+      "citations": [
+        {
+          "section": "KiwiDesk API Reference",
+          "citation_id": 1,
+          "anchor": "source-95eb08febc2448479987cba83c757935",
+          "context_excerpt": null,
+          "chunk_id": "dca0d56175b49743a1fb1a80",
+          "document_id": "39f316a5-4b00-465f-81a2-a9da40a891cb",
+          "source_filename": "api_reference.md",
+          "page_number": null,
+          "excerpt": "API clients should send the `X-KiwiDesk-Workspace` header with each request."
+        },
+        {
+          "section": "KiwiDesk API Reference",
+          "citation_id": 2,
+          "anchor": "source-05a2a054e9cc4f6b9ccddf6aa82d5329",
+          "context_excerpt": null,
+          "chunk_id": "ca6c9b02b007409a6c83d2b0",
+          "document_id": "39f316a5-4b00-465f-81a2-a9da40a891cb",
+          "source_filename": "api_reference.md",
+          "page_number": null,
+          "excerpt": "The `GET /api/v2/search` endpoint accepts the query parameter `q` and an optional `limit` parameter. The default limit is 25."
+        }
+      ],
+      "expected_answerability": "answerable",
+      "actual_answerability": "answerable",
+      "expected_source": "api_reference.md",
+      "citation_sources": [
+        "api_reference.md"
+      ],
+      "answerability_ok": true,
+      "source_ok": true,
+      "answer_support_ok": true,
+      "answer_polarity_ok": true,
+      "answer_relevancy": 1.0,
+      "abstention_correct": true,
+      "faithfulness": 0.7894736842105263,
+      "faithfulness_method": "citation_and_lexical_support_proxy",
+      "citation_groundedness": 1.0,
+      "citation_precision": 1.0,
+      "one_line_refusal": false,
+      "generation_model": "qwen2.5:1.5b",
+      "retrieval": {
+        "semantic": {
+          "k": 8,
+          "precision_at_k": 0.5,
+          "retrieved_precision": 0.5,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 4,
+          "relevant_total": 4,
+          "retrieved_total": 8
+        },
+        "keyword": {
+          "k": 8,
+          "precision_at_k": 0.5,
+          "retrieved_precision": 1.0,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 4,
+          "relevant_total": 4,
+          "retrieved_total": 4
+        },
+        "hybrid_reranked": {
+          "k": 4,
+          "precision_at_k": 1.0,
+          "retrieved_precision": 1.0,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 4,
+          "relevant_total": 4,
+          "retrieved_total": 4
+        }
+      },
+      "retrieval_latency_ms": 48,
+      "generation_latency_ms": 19818,
+      "total_latency_ms": 20765,
+      "under_10_seconds": false,
+      "passed": true
+    },
+    {
+      "question": "What did KiwiDesk 4.2 add?",
+      "answer": "KiwiDesk 4.2 added Smart Inbox language routing and improved JSON export reliability. [1](#source-ee10d180373e4606b0af84a3e7aed96a)",
+      "citations": [
+        {
+          "section": "Version 4.2",
+          "citation_id": 1,
+          "anchor": "source-ee10d180373e4606b0af84a3e7aed96a",
+          "context_excerpt": null,
+          "chunk_id": "d4367694f3d49382bcbc8528",
+          "document_id": "66c3f594-5d0b-430e-a906-9445590de3b0",
+          "source_filename": "release_notes.md",
+          "page_number": null,
+          "excerpt": "KiwiDesk 4.2 added Smart Inbox language routing and improved JSON export reliability."
+        }
+      ],
+      "expected_answerability": "answerable",
+      "actual_answerability": "answerable",
+      "expected_source": "release_notes.md",
+      "citation_sources": [
+        "release_notes.md"
+      ],
+      "answerability_ok": true,
+      "source_ok": true,
+      "answer_support_ok": true,
+      "answer_polarity_ok": true,
+      "answer_relevancy": 1.0,
+      "abstention_correct": true,
+      "faithfulness": 1.0,
+      "faithfulness_method": "citation_and_lexical_support_proxy",
+      "citation_groundedness": 1.0,
+      "citation_precision": 1.0,
+      "one_line_refusal": false,
+      "generation_model": "qwen2.5:1.5b",
+      "retrieval": {
+        "semantic": {
+          "k": 8,
+          "precision_at_k": 0.125,
+          "retrieved_precision": 0.125,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 1,
+          "relevant_total": 1,
+          "retrieved_total": 8
+        },
+        "keyword": {
+          "k": 8,
+          "precision_at_k": 0.125,
+          "retrieved_precision": 0.125,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 1,
+          "relevant_total": 1,
+          "retrieved_total": 8
+        },
+        "hybrid_reranked": {
+          "k": 4,
+          "precision_at_k": 0.25,
+          "retrieved_precision": 0.25,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 1,
+          "relevant_total": 1,
+          "retrieved_total": 4
+        }
+      },
+      "retrieval_latency_ms": 49,
+      "generation_latency_ms": 16795,
+      "total_latency_ms": 17768,
+      "under_10_seconds": false,
+      "passed": true
+    },
+    {
+      "question": "What did KiwiDesk 4.1 introduce?",
+      "answer": "KiwiDesk 4.1 introduced CSV export for ticket analytics. [1](#source-0bad867e90c748d4831cc4d7fecd386c)",
+      "citations": [
+        {
+          "section": "Version 4.1",
+          "citation_id": 1,
+          "anchor": "source-0bad867e90c748d4831cc4d7fecd386c",
+          "context_excerpt": null,
+          "chunk_id": "d4367694f3d49382bcbc8528",
+          "document_id": "66c3f594-5d0b-430e-a906-9445590de3b0",
+          "source_filename": "release_notes.md",
+          "page_number": null,
+          "excerpt": "KiwiDesk 4.1 introduced CSV export for ticket analytics."
+        }
+      ],
+      "expected_answerability": "answerable",
+      "actual_answerability": "answerable",
+      "expected_source": "release_notes.md",
+      "citation_sources": [
+        "release_notes.md"
+      ],
+      "answerability_ok": true,
+      "source_ok": true,
+      "answer_support_ok": true,
+      "answer_polarity_ok": true,
+      "answer_relevancy": 1.0,
+      "abstention_correct": true,
+      "faithfulness": 1.0,
+      "faithfulness_method": "citation_and_lexical_support_proxy",
+      "citation_groundedness": 1.0,
+      "citation_precision": 1.0,
+      "one_line_refusal": false,
+      "generation_model": "qwen2.5:1.5b",
+      "retrieval": {
+        "semantic": {
+          "k": 8,
+          "precision_at_k": 0.25,
+          "retrieved_precision": 0.25,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 2,
+          "relevant_total": 2,
+          "retrieved_total": 8
+        },
+        "keyword": {
+          "k": 8,
+          "precision_at_k": 0.25,
+          "retrieved_precision": 0.25,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 2,
+          "relevant_total": 2,
+          "retrieved_total": 8
+        },
+        "hybrid_reranked": {
+          "k": 4,
+          "precision_at_k": 0.5,
+          "retrieved_precision": 0.5,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 2,
+          "relevant_total": 2,
+          "retrieved_total": 4
+        }
+      },
+      "retrieval_latency_ms": 56,
+      "generation_latency_ms": 15076,
+      "total_latency_ms": 16085,
+      "under_10_seconds": false,
+      "passed": true
+    },
+    {
+      "question": "Is version 4.2 backward compatible with 4.1 integrations?",
+      "answer": "Version 4.2 is backward compatible with 4.1 integrations. [1](#source-d9caa971e0324db3b0fa006274fcd981)",
+      "citations": [
+        {
+          "section": "Version 4.1",
+          "citation_id": 1,
+          "anchor": "source-d9caa971e0324db3b0fa006274fcd981",
+          "context_excerpt": null,
+          "chunk_id": "971dd90235cbbbdf6d4308dc",
+          "document_id": "66c3f594-5d0b-430e-a906-9445590de3b0",
+          "source_filename": "release_notes.md",
+          "page_number": null,
+          "excerpt": "Version 4.2 remains backward compatible with integrations built for version 4.1."
+        }
+      ],
+      "expected_answerability": "answerable",
+      "actual_answerability": "answerable",
+      "expected_source": "release_notes.md",
+      "citation_sources": [
+        "release_notes.md"
+      ],
+      "answerability_ok": true,
+      "source_ok": true,
+      "answer_support_ok": true,
+      "answer_polarity_ok": true,
+      "answer_relevancy": 1.0,
+      "abstention_correct": true,
+      "faithfulness": 1.0,
+      "faithfulness_method": "citation_and_lexical_support_proxy",
+      "citation_groundedness": 1.0,
+      "citation_precision": 1.0,
+      "one_line_refusal": false,
+      "generation_model": "qwen2.5:1.5b",
+      "retrieval": {
+        "semantic": {
+          "k": 8,
+          "precision_at_k": 0.375,
+          "retrieved_precision": 0.375,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 3,
+          "relevant_total": 3,
+          "retrieved_total": 8
+        },
+        "keyword": {
+          "k": 8,
+          "precision_at_k": 0.375,
+          "retrieved_precision": 0.375,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 3,
+          "relevant_total": 3,
+          "retrieved_total": 8
+        },
+        "hybrid_reranked": {
+          "k": 4,
+          "precision_at_k": 0.75,
+          "retrieved_precision": 0.75,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 3,
+          "relevant_total": 3,
+          "retrieved_total": 4
+        }
+      },
+      "retrieval_latency_ms": 58,
+      "generation_latency_ms": 14339,
+      "total_latency_ms": 15376,
+      "under_10_seconds": false,
+      "passed": true
+    },
+    {
+      "question": "How should document access be scoped?",
+      "answer": "KiwiDesk requires document access to be scoped by user ownership. [1](#source-495ca16a6d9b4bdeab9b69ddf9ad8e53)\n\nPasswords must be stored as salted hashes and must never be logged. [2](#source-ae2603849a4e45349186da1bb2accfc9)",
+      "citations": [
+        {
+          "section": "KiwiDesk Security Policy",
+          "citation_id": 1,
+          "anchor": "source-495ca16a6d9b4bdeab9b69ddf9ad8e53",
+          "context_excerpt": null,
+          "chunk_id": "36c51af6c2ead335d84e3649",
+          "document_id": "fde50f43-d87f-4a1a-b781-ac399d0dc3d5",
+          "source_filename": "security_policy.md",
+          "page_number": null,
+          "excerpt": "KiwiDesk requires document access to be scoped by user ownership."
+        },
+        {
+          "section": "KiwiDesk Security Policy",
+          "citation_id": 2,
+          "anchor": "source-ae2603849a4e45349186da1bb2accfc9",
+          "context_excerpt": null,
+          "chunk_id": "36c51af6c2ead335d84e3649",
+          "document_id": "fde50f43-d87f-4a1a-b781-ac399d0dc3d5",
+          "source_filename": "security_policy.md",
+          "page_number": null,
+          "excerpt": "Passwords must be stored as salted hashes and must never be logged."
+        }
+      ],
+      "expected_answerability": "answerable",
+      "actual_answerability": "answerable",
+      "expected_source": "security_policy.md",
+      "citation_sources": [
+        "security_policy.md"
+      ],
+      "answerability_ok": true,
+      "source_ok": true,
+      "answer_support_ok": true,
+      "answer_polarity_ok": true,
+      "answer_relevancy": 1.0,
+      "abstention_correct": true,
+      "faithfulness": 1.0,
+      "faithfulness_method": "citation_and_lexical_support_proxy",
+      "citation_groundedness": 1.0,
+      "citation_precision": 1.0,
+      "one_line_refusal": false,
+      "generation_model": "qwen2.5:1.5b",
+      "retrieval": {
+        "semantic": {
+          "k": 8,
+          "precision_at_k": 0.125,
+          "retrieved_precision": 0.125,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 1,
+          "relevant_total": 1,
+          "retrieved_total": 8
+        },
+        "keyword": {
+          "k": 8,
+          "precision_at_k": 0.125,
+          "retrieved_precision": 0.125,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 1,
+          "relevant_total": 1,
+          "retrieved_total": 8
+        },
+        "hybrid_reranked": {
+          "k": 4,
+          "precision_at_k": 0.25,
+          "retrieved_precision": 0.25,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 1,
+          "relevant_total": 1,
+          "retrieved_total": 4
+        }
+      },
+      "retrieval_latency_ms": 51,
+      "generation_latency_ms": 16455,
+      "total_latency_ms": 17456,
+      "under_10_seconds": false,
+      "passed": true
+    },
+    {
+      "question": "How must passwords be stored?",
+      "answer": "Passwords must be stored as salted hashes and must never be logged. [1](#source-96ff4ed46e3b41c2946c5e91b9681d3d)",
+      "citations": [
+        {
+          "section": "KiwiDesk Security Policy",
+          "citation_id": 1,
+          "anchor": "source-96ff4ed46e3b41c2946c5e91b9681d3d",
+          "context_excerpt": null,
+          "chunk_id": "583f41045ea5c37f75f97ee2",
+          "document_id": "fde50f43-d87f-4a1a-b781-ac399d0dc3d5",
+          "source_filename": "security_policy.md",
+          "page_number": null,
+          "excerpt": "Passwords must be stored as salted hashes and must never be logged."
+        }
+      ],
+      "expected_answerability": "answerable",
+      "actual_answerability": "answerable",
+      "expected_source": "security_policy.md",
+      "citation_sources": [
+        "security_policy.md"
+      ],
+      "answerability_ok": true,
+      "source_ok": true,
+      "answer_support_ok": true,
+      "answer_polarity_ok": true,
+      "answer_relevancy": 1.0,
+      "abstention_correct": true,
+      "faithfulness": 1.0,
+      "faithfulness_method": "citation_and_lexical_support_proxy",
+      "citation_groundedness": 1.0,
+      "citation_precision": 1.0,
+      "one_line_refusal": false,
+      "generation_model": "qwen2.5:1.5b",
+      "retrieval": {
+        "semantic": {
+          "k": 8,
+          "precision_at_k": 0.25,
+          "retrieved_precision": 0.25,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 2,
+          "relevant_total": 2,
+          "retrieved_total": 8
+        },
+        "keyword": {
+          "k": 8,
+          "precision_at_k": 0.25,
+          "retrieved_precision": 0.5,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 2,
+          "relevant_total": 2,
+          "retrieved_total": 4
+        },
+        "hybrid_reranked": {
+          "k": 4,
+          "precision_at_k": 0.5,
+          "retrieved_precision": 0.5,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 2,
+          "relevant_total": 2,
+          "retrieved_total": 4
+        }
+      },
+      "retrieval_latency_ms": 47,
+      "generation_latency_ms": 14211,
+      "total_latency_ms": 15160,
+      "under_10_seconds": false,
+      "passed": true
+    },
+    {
+      "question": "Can uploaded document instructions override system instructions?",
+      "answer": "Uploaded documents are treated as untrusted content. Instructions inside uploaded documents must not override application or system instructions. [1](#source-33d933aa688e46388d33c33e07bf5df0)\n\nSessions expire after the configured token lifetime. [2](#source-75e1ce3eb4d2474f9cbbb3868c7d1002)",
+      "citations": [
+        {
+          "section": "KiwiDesk Security Policy",
+          "citation_id": 1,
+          "anchor": "source-33d933aa688e46388d33c33e07bf5df0",
+          "context_excerpt": null,
+          "chunk_id": "2977efc2002f575c45d577eb",
+          "document_id": "fde50f43-d87f-4a1a-b781-ac399d0dc3d5",
+          "source_filename": "security_policy.md",
+          "page_number": null,
+          "excerpt": "Instructions inside uploaded documents must not override application or system instructions."
+        },
+        {
+          "section": "KiwiDesk Security Policy",
+          "citation_id": 2,
+          "anchor": "source-75e1ce3eb4d2474f9cbbb3868c7d1002",
+          "context_excerpt": null,
+          "chunk_id": "c4ed6bba0eef6515ab12a339",
+          "document_id": "fde50f43-d87f-4a1a-b781-ac399d0dc3d5",
+          "source_filename": "security_policy.md",
+          "page_number": null,
+          "excerpt": "Sessions expire after the configured token lifetime."
+        }
+      ],
+      "expected_answerability": "answerable",
+      "actual_answerability": "answerable",
+      "expected_source": "security_policy.md",
+      "citation_sources": [
+        "security_policy.md"
+      ],
+      "answerability_ok": true,
+      "source_ok": true,
+      "answer_support_ok": true,
+      "answer_polarity_ok": true,
+      "answer_relevancy": 1.0,
+      "abstention_correct": true,
+      "faithfulness": 0.85,
+      "faithfulness_method": "citation_and_lexical_support_proxy",
+      "citation_groundedness": 1.0,
+      "citation_precision": 1.0,
+      "one_line_refusal": false,
+      "generation_model": "qwen2.5:1.5b",
+      "retrieval": {
+        "semantic": {
+          "k": 8,
+          "precision_at_k": 0.5,
+          "retrieved_precision": 0.5,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 4,
+          "relevant_total": 4,
+          "retrieved_total": 8
+        },
+        "keyword": {
+          "k": 8,
+          "precision_at_k": 0.5,
+          "retrieved_precision": 0.5714285714285714,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 4,
+          "relevant_total": 4,
+          "retrieved_total": 7
+        },
+        "hybrid_reranked": {
+          "k": 4,
+          "precision_at_k": 1.0,
+          "retrieved_precision": 1.0,
+          "recall_at_k": 1.0,
+          "relevant_retrieved": 4,
+          "relevant_total": 4,
+          "retrieved_total": 4
+        }
+      },
+      "retrieval_latency_ms": 58,
+      "generation_latency_ms": 19269,
+      "total_latency_ms": 20398,
+      "under_10_seconds": false,
+      "passed": true
+    },
+    {
+      "question": "Who is the CEO of KiwiDesk?",
+      "answer": "I could not find enough information in the uploaded document to answer this.",
+      "citations": [],
+      "expected_answerability": "unanswerable",
+      "actual_answerability": "unanswerable",
+      "expected_source": null,
+      "citation_sources": [],
+      "answerability_ok": true,
+      "source_ok": true,
+      "answer_support_ok": true,
+      "answer_polarity_ok": true,
+      "answer_relevancy": null,
+      "abstention_correct": true,
+      "faithfulness": null,
+      "faithfulness_method": "citation_and_lexical_support_proxy",
+      "citation_groundedness": null,
+      "citation_precision": null,
+      "one_line_refusal": true,
+      "generation_model": null,
+      "retrieval": {
+        "semantic": {
+          "k": 8,
+          "precision_at_k": 0.0,
+          "retrieved_precision": 0.0,
+          "recall_at_k": null,
+          "relevant_retrieved": 0,
+          "relevant_total": 0,
+          "retrieved_total": 8
+        },
+        "keyword": {
+          "k": 8,
+          "precision_at_k": 0.0,
+          "retrieved_precision": 0.0,
+          "recall_at_k": null,
+          "relevant_retrieved": 0,
+          "relevant_total": 0,
+          "retrieved_total": 8
+        },
+        "hybrid_reranked": {
+          "k": 4,
+          "precision_at_k": 0.0,
+          "retrieved_precision": 0.0,
+          "recall_at_k": null,
+          "relevant_retrieved": 0,
+          "relevant_total": 0,
+          "retrieved_total": 4
+        }
+      },
+      "retrieval_latency_ms": 73,
+      "generation_latency_ms": 0,
+      "total_latency_ms": 714,
+      "under_10_seconds": true,
+      "passed": true
+    },
+    {
+      "question": "What is KiwiDesk's office address in Berlin?",
+      "answer": "I could not find enough information in the uploaded document to answer this.",
+      "citations": [],
+      "expected_answerability": "unanswerable",
+      "actual_answerability": "unanswerable",
+      "expected_source": null,
+      "citation_sources": [],
+      "answerability_ok": true,
+      "source_ok": true,
+      "answer_support_ok": true,
+      "answer_polarity_ok": true,
+      "answer_relevancy": null,
+      "abstention_correct": true,
+      "faithfulness": null,
+      "faithfulness_method": "citation_and_lexical_support_proxy",
+      "citation_groundedness": null,
+      "citation_precision": null,
+      "one_line_refusal": true,
+      "generation_model": null,
+      "retrieval": {
+        "semantic": {
+          "k": 8,
+          "precision_at_k": 0.0,
+          "retrieved_precision": 0.0,
+          "recall_at_k": null,
+          "relevant_retrieved": 0,
+          "relevant_total": 0,
+          "retrieved_total": 8
+        },
+        "keyword": {
+          "k": 8,
+          "precision_at_k": 0.0,
+          "retrieved_precision": 0.0,
+          "recall_at_k": null,
+          "relevant_retrieved": 0,
+          "relevant_total": 0,
+          "retrieved_total": 8
+        },
+        "hybrid_reranked": {
+          "k": 4,
+          "precision_at_k": 0.0,
+          "retrieved_precision": 0.0,
+          "recall_at_k": null,
+          "relevant_retrieved": 0,
+          "relevant_total": 0,
+          "retrieved_total": 4
+        }
+      },
+      "retrieval_latency_ms": 51,
+      "generation_latency_ms": 0,
+      "total_latency_ms": 550,
+      "under_10_seconds": true,
+      "passed": true
+    }
+  ]
+}

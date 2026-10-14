@@ -1,0 +1,3 @@
+Standard delivery takes 6 days.
+
+Express delivery takes 2 days.

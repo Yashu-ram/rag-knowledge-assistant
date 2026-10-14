@@ -1,0 +1,7 @@
+The Orion pump operates at a pressure of 12 bar.
+
+The service interval for the Orion pump is 1500 hours.
+
+The LDR-17 error indicates that the inlet filter is clogged. To resolve LDR-17, clean the inlet filter and restart the pump.
+
+The pump must be shut down before maintenance begins.

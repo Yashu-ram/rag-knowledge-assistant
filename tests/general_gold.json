@@ -1,0 +1,21 @@
+{
+  "What is the warranty period?":"The warranty period is 24 months from the date of purchase.",
+  "How long do I have to send a broken item back?":"Defective merchandise can be returned within thirty days.",
+  "What is the default support response time?":"The default support response time is 48 hours.",
+  "What is the maximum support response time?":"The maximum support response time is 72 hours.",
+  "How many days of written notice are required before terminating the agreement?":"Either party must give 60 days of written notice before terminating the agreement.",
+  "What is the monthly service fee?":"The monthly service fee is 40 dollars.",
+  "What fee is required for early termination?":"Early termination requires a fee of 100 dollars.",
+  "How often does the agreement renew?":"The agreement renews automatically every 12 months.",
+  "How long does standard delivery take?":"Standard delivery takes 4 business days.",
+  "How long does express delivery take?":"Express delivery takes 1 business day.",
+  "When is shipping free?":"Shipping is free for orders above 75 dollars.",
+  "At what pressure does the Orion pump operate?":"The Orion pump operates at a pressure of 12 bar.",
+  "What is the Orion pump service interval?":"The service interval for the Orion pump is 1500 hours.",
+  "How do I resolve LDR-17?":"To resolve LDR-17, clean the inlet filter and restart the pump.",
+  "What must happen before pump maintenance?":"The pump must be shut down before maintenance begins.",
+  "What is the Monthly USD fee for Pro?":"\"Plan\": \"Pro\", \"Monthly USD\": \"25\"",
+  "What is the Annual USD fee for Starter?":"\"Plan\": \"Starter\", \"Monthly USD\": \"12\", \"Annual USD\": \"120\"",
+  "What is the retry limit?":"root.limits.retry: 3",
+  "What is the timeout_seconds setting?":"root.limits.timeout_seconds: 15"
+}

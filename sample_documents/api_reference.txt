@@ -1,0 +1,232 @@
+API REFERENCE — DOCUQUERY API
+Version: 1.0
+Status: Sample specification for RAG development and evaluation
+
+IMPORTANT
+DocuQuery is a fictional API used for demonstration. The base URL and specifications below are illustrative and are not a live service.
+
+BASE URL
+https://api.docuquery.example/v1
+
+AUTHENTICATION
+All endpoints except where otherwise noted require a bearer token:
+Authorization: Bearer YOUR_API_TOKEN
+
+Send JSON request bodies with:
+Content-Type: application/json
+
+1. UPLOAD DOCUMENT
+
+Endpoint:
+POST /documents
+
+Purpose:
+Uploads one document for processing. The request must use multipart/form-data and include a field named "file".
+
+Request parameters:
+- file (file, required): A supported document file.
+- Supported extensions: .pdf, .md, .txt, .docx, .csv, .json
+- Maximum file size: 20 MB per file.
+- Maximum files in one upload request: 10.
+
+Success response:
+HTTP 202 Accepted
+
+Response fields:
+- document_id (string): Unique identifier assigned to the uploaded document.
+- filename (string): Name of the uploaded file.
+- status (string): Initial processing status, normally "processing".
+
+Example response:
+{
+  "document_id": "doc_12345",
+  "filename": "product-guide.pdf",
+  "status": "processing"
+}
+
+Example error codes:
+- 400 INVALID_REQUEST: The file field is missing or invalid.
+- 401 INVALID_TOKEN: Authentication is missing or invalid.
+- 413 FILE_TOO_LARGE: The file exceeds 20 MB.
+- 415 UNSUPPORTED_FILE_TYPE: The file extension or content type is unsupported.
+- 422 EMPTY_DOCUMENT: The file contains no usable content.
+
+2. GET DOCUMENT STATUS
+
+Endpoint:
+GET /documents/{document_id}
+
+Purpose:
+Returns the processing status of a previously uploaded document.
+
+Path parameters:
+- document_id (string, required): ID returned by POST /documents.
+
+Success response:
+HTTP 200 OK
+
+Response fields:
+- document_id (string): Unique document identifier.
+- filename (string): Original uploaded filename.
+- status (string): One of "processing", "ready", or "failed".
+
+Example response:
+{
+  "document_id": "doc_12345",
+  "filename": "product-guide.pdf",
+  "status": "ready"
+}
+
+Example error codes:
+- 401 INVALID_TOKEN: Authentication is missing or invalid.
+- 404 DOCUMENT_NOT_FOUND: The document ID does not exist.
+
+3. ASK A QUESTION
+
+Endpoint:
+POST /questions
+
+Purpose:
+Answers a question using relevant content retrieved from one or more uploaded documents.
+
+JSON request fields:
+- question (string, required): The user's question. Maximum length: 2,000 characters.
+- document_ids (array of strings, required): One or more document IDs to search. Maximum: 20 IDs.
+
+Example request:
+{
+  "question": "Which file formats does the API support?",
+  "document_ids": ["doc_12345"]
+}
+
+Success response:
+HTTP 200 OK
+
+Response fields:
+- answer (string): Answer generated from retrieved document content.
+- insufficient_information (boolean): True when the available documents do not provide enough evidence.
+- sources (array): Source passages used to support the answer.
+  - document_id (string): ID of the source document.
+  - filename (string): Source filename.
+  - section (string): Section or heading containing the evidence, when available.
+  - excerpt (string): Relevant excerpt from the source.
+
+Example response:
+{
+  "answer": "The API supports PDF, Markdown, TXT, DOCX, CSV, and JSON.",
+  "insufficient_information": false,
+  "sources": [
+    {
+      "document_id": "doc_12345",
+      "filename": "product_documentation.md",
+      "section": "Supported File Formats",
+      "excerpt": "The API accepts PDF, Markdown, plain text, Microsoft Word, CSV, and JSON."
+    }
+  ]
+}
+
+Example response when the answer is not available:
+{
+  "answer": "The provided documentation does not specify the data-center location.",
+  "insufficient_information": true,
+  "sources": []
+}
+
+Example error codes:
+- 400 INVALID_REQUEST: Required fields are missing or invalid.
+- 401 INVALID_TOKEN: Authentication is missing or invalid.
+- 404 DOCUMENT_NOT_FOUND: One or more document IDs do not exist.
+- 409 DOCUMENT_NOT_READY: One or more documents are still processing.
+- 429 RATE_LIMIT_EXCEEDED: The request rate limit has been exceeded.
+
+4. DELETE DOCUMENT
+
+Endpoint:
+DELETE /documents/{document_id}
+
+Purpose:
+Deletes a document and its searchable index entries.
+
+Path parameters:
+- document_id (string, required): ID of the document to delete.
+
+Success response:
+HTTP 204 No Content
+The response has no body.
+
+Example error codes:
+- 401 INVALID_TOKEN: Authentication is missing or invalid.
+- 404 DOCUMENT_NOT_FOUND: The document ID does not exist.
+
+5. COMMON ERROR RESPONSE FORMAT
+
+Errors return a JSON object with an "error" field containing a code and a human-readable message.
+
+Example:
+{
+  "error": {
+    "code": "UNSUPPORTED_FILE_TYPE",
+    "message": "The uploaded file type is not supported."
+  }
+}
+
+HTTP status codes:
+- 400 Bad Request: Invalid or incomplete request.
+- 401 Unauthorized: Missing or invalid authentication token.
+- 404 Not Found: Requested document does not exist.
+- 409 Conflict: Document is not ready for querying.
+- 413 Payload Too Large: Uploaded file exceeds the size limit.
+- 415 Unsupported Media Type: File format is not supported.
+- 422 Unprocessable Entity: File contains no usable content.
+- 429 Too Many Requests: Rate limit exceeded.
+- 500 Internal Server Error: Unexpected server-side failure.
+
+6. RATE LIMITS
+
+Illustrative defaults:
+- 60 requests per minute per API token.
+- 3 concurrent document-processing jobs per API token.
+- 20 document IDs per question request.
+- 2,000 characters per question.
+
+When the rate limit is exceeded, the API returns HTTP 429 with error code RATE_LIMIT_EXCEEDED. If a Retry-After header is present, clients should wait for the specified interval before retrying.
+
+7. DOCUMENT PROCESSING STATUS VALUES
+
+- processing: The file is being parsed and indexed.
+- ready: The document can be searched.
+- failed: Processing did not complete successfully.
+
+8. CLIENT IMPLEMENTATION NOTES
+
+- Use HTTPS for all requests.
+- Keep bearer tokens secret.
+- Upload files using multipart/form-data.
+- Send question requests as JSON.
+- Check document status before asking questions.
+- Handle non-2xx status codes.
+- Retry transient failures with backoff and respect Retry-After when supplied.
+- Do not fabricate answers when no supporting source passage is available.
+
+9. QUICK LOOKUP
+
+Question: What does the document upload endpoint return?
+Answer: POST /documents returns HTTP 202 Accepted with a JSON body containing document_id, filename, and status. The initial status is normally "processing".
+
+Question: Which endpoint checks document status?
+Answer: GET /documents/{document_id}.
+
+Question: Which endpoint answers questions?
+Answer: POST /questions.
+
+Question: Which endpoint deletes a document?
+Answer: DELETE /documents/{document_id}, returning HTTP 204 No Content on success.
+
+Question: What does a 415 error mean?
+Answer: The uploaded file type is unsupported.
+
+Question: What does a 429 error mean?
+Answer: The request rate limit has been exceeded.
+
+Question: What does insufficient_information=true mean?
+Answer: The available document content did not provide enough evidence to answer the question reliably.

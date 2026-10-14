@@ -1,0 +1,58 @@
+services:
+  ollama:
+    image: ollama/ollama:latest
+    volumes:
+      - ollama_models:/root/.ollama
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
+
+  backend:
+    build: .
+    image: rag-knowledge-assistant:local
+    env_file: .env
+    environment:
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY:?Generate a private JWT_SECRET_KEY in .env first}
+      DATABASE_URL: sqlite:///./data/app.db
+      UPLOAD_DIR: /app/uploads
+      CHROMA_DIR: /app/chroma_store
+      OLLAMA_BASE_URL: http://ollama:11434
+      HF_HOME: /app/.cache/huggingface
+    ports:
+      - "18000:8000"
+    volumes:
+      - app_data:/app/data
+      - uploads:/app/uploads
+      - chroma_data:/app/chroma_store
+      - huggingface_cache:/app/.cache/huggingface
+    depends_on:
+      ollama:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=5)"]
+      interval: 15s
+      timeout: 10s
+      retries: 12
+      start_period: 180s
+
+  frontend:
+    build: .
+    image: rag-knowledge-assistant:local
+    command: ["python", "-m", "streamlit", "run", "app/ui/streamlit_app.py", "--server.address", "0.0.0.0", "--server.port", "8501", "--server.headless", "true"]
+    environment:
+      API_BASE_URL: http://backend:8000
+    ports:
+      - "18501:8501"
+    depends_on:
+      backend:
+        condition: service_healthy
+
+volumes:
+  app_data:
+  uploads:
+  chroma_data:
+  huggingface_cache:
+  ollama_models:

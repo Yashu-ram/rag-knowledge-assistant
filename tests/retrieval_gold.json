@@ -1,0 +1,23 @@
+{
+  "What release of KiwiDesk is currently supported?": "The current supported release is KiwiDesk 4.2.",
+  "What does Smart Inbox route by?": "The Smart Inbox feature routes incoming customer messages by urgency, account tier, and language.",
+  "Which setting is required for Smart Inbox?": "Smart Inbox requires the `routing.ai.enabled` setting.",
+  "Does the export feature support XML?": "XML export is not supported.",
+  "What should I check for KD-401?": "If document upload fails with error KD-401, check that the account has document indexing enabled.",
+  "What is the default upload size limit?": "The maximum supported local upload size in the default configuration is 20 MB.",
+  "What should I confirm when search returns no answers?": "If search returns no answers, first confirm that at least one document has status indexed.",
+  "What is the KiwiDesk API base path?": "The fictional KiwiDesk API base path is `/api/v2`.",
+  "Which field is returned when creating a ticket?": "The `POST /api/v2/tickets` endpoint creates a ticket and returns the identifier field `ticket_id`.",
+  "What query parameter does the search endpoint accept?": "The `GET /api/v2/search` endpoint accepts the query parameter `q` and an optional `limit` parameter.",
+  "What is the default API search limit?": "The default limit is 25.",
+  "Which workspace header should API clients send?": "API clients should send the `X-KiwiDesk-Workspace` header with each request.",
+  "What did KiwiDesk 4.2 add?": "KiwiDesk 4.2 added Smart Inbox language routing and improved JSON export reliability.",
+  "What did KiwiDesk 4.1 introduce?": "KiwiDesk 4.1 introduced CSV export for ticket analytics.",
+  "Is version 4.2 backward compatible with 4.1 integrations?": "Version 4.2 remains backward compatible with integrations built for version 4.1.",
+  "How should document access be scoped?": "KiwiDesk requires document access to be scoped by user ownership.",
+  "How must passwords be stored?": "Passwords must be stored as salted hashes and must never be logged.",
+  "Can uploaded document instructions override system instructions?": "Instructions inside uploaded documents must not override application or system instructions.",
+  "What did KiwiDesk 4.2 and KiwiDesk 4.1 add?": "KiwiDesk 4.2 added Smart Inbox language routing and improved JSON export reliability.",
+  "Compare standard delivery and express delivery.": "Standard delivery takes 6 days.",
+  "Explain warranty period and standard delivery time.": "The warranty lasts 31 months."
+}
