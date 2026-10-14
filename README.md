@@ -22,8 +22,6 @@ interactive frontend. Pretrained models are used; nothing is trained from scratc
 | Docker support | Dockerfile and Compose stack included; validation status below |
 | Setup, sample files, results, limitations | This README, `sample_documents/`, `tests/`, and `docs/evaluation-results.json` |
 
-The local functionality is verified, not a prediction of the interviewer's score.
-Publishing a repository/archive and submitting its link are still manual steps.
 
 ## Quick Start: Python 3.11
 
