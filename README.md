@@ -36,17 +36,22 @@ flowchart TD
     A["Upload PDF / TXT / Markdown"] --> B["Extract Text"]
     B --> C["Chunk Text With Metadata"]
     C --> D["Create MiniLM Embeddings"]
-    D --> E["Store In ChromaDB"]
+    D --> E["Store Chunks + Metadata In ChromaDB"]
 
     F["User Question"] --> G["Create Query Embedding"]
-    G --> H["Semantic Vector Search"]
-    F --> I["BM25 Keyword Search"]
+    G --> H["Semantic Vector Search Over ChromaDB"]
+    E --> H
+
+    F --> I["BM25 Keyword Search Over Stored Chunks"]
+    E --> I
 
     H --> J["RRF Fusion"]
     I --> J
     J --> K["Lightweight Reranking"]
     K --> L["Select Top Context Chunks"]
     L --> M["Ollama LLM Grounded Answer"]
+    F --> M
+
     M --> N["Answer With Citations"]
     M --> O["Abstain If Evidence Missing"]
 ```
