@@ -15,12 +15,14 @@ from app.core.config import get_settings
 from app.retrieval.vector_store import ChromaVectorStore
 from app.storage.database import get_db
 from app.storage.models import Document, User
+from app.storage.document_access import SAMPLE_LIBRARY_USER_ID, readable_owner_ids, can_read_document
 
 router = APIRouter(prefix="/documents", tags=["documents"])
 
 
 def to_document_response(document: Document) -> DocumentResponse:
     return DocumentResponse(
+        is_sample=document.user_id == SAMPLE_LIBRARY_USER_ID,
         error_message=document.error_message,
         document_id=document.document_id,
         filename=document.filename,
@@ -79,7 +81,7 @@ async def upload_document(
 
 @router.get("", response_model=list[DocumentResponse])
 def list_documents(db: Session = Depends(get_db), user: User = Depends(get_current_user)) -> list[DocumentResponse]:
-    documents = db.scalars(select(Document).where(Document.user_id == user.user_id).order_by(Document.created_at.desc())).all()
+    documents = db.scalars(select(Document).where(Document.user_id.in_(readable_owner_ids(user.user_id))).order_by(Document.created_at.desc())).all()
     return [to_document_response(document) for document in documents]
 
 
@@ -97,7 +99,7 @@ def reindex_document(document_id: str, db: Session = Depends(get_db), user: User
 @router.get("/{document_id}", response_model=DocumentResponse)
 def get_document(document_id: str, db: Session = Depends(get_db), user: User = Depends(get_current_user)) -> DocumentResponse:
     document = db.get(Document, document_id)
-    if document is None or document.user_id != user.user_id:
+    if not can_read_document(document, user.user_id):
         raise HTTPException(status_code=404, detail="Document not found")
     return to_document_response(document)
 

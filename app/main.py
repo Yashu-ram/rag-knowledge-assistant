@@ -5,7 +5,8 @@ from contextlib import asynccontextmanager
 from starlette.concurrency import run_in_threadpool
 
 from app.api.routes import auth, chat, conversations, documents, health, models
-from app.storage.database import Base, engine
+from app.storage.database import Base, engine, SessionLocal
+from app.ingestion.samples import ingest_sample_library
 from app.core.config import get_settings
 from app.retrieval.service import shared_embedding_model
 from app.generation.model_gateway import list_ollama_models, warm_ollama_model
@@ -25,6 +26,8 @@ async def lifespan(app):
     except RAGServiceError as exc:
         app.state.embedding_error = exc.code
         logging.getLogger(__name__).warning("RAG startup: %s", exc.code)
+    with SessionLocal() as db:
+        await ingest_sample_library(db)
     models = await run_in_threadpool(list_ollama_models)
     app.state.llm_warmed = False
     if settings.default_llm_model in models.get("installed_models", []):

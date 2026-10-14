@@ -13,6 +13,7 @@ from app.rag_pipeline import RAGPipeline
 from app.generation.model_gateway import generate_answer, ensure_ollama_model
 from app.storage.database import get_db
 from app.storage.models import Conversation, Document, Message, User
+from app.storage.document_access import readable_owner_ids, can_read_document
 
 router = APIRouter(prefix="/chat", tags=["chat"])
 
@@ -24,11 +25,11 @@ def chat(payload: ChatRequest, db: Session = Depends(get_db), user: User = Depen
     if payload.document_ids:
         for document_id in payload.document_ids:
             document = db.get(Document, document_id)
-            if document is None or document.user_id != user.user_id:
+            if not can_read_document(document, user.user_id):
                 raise HTTPException(status_code=404, detail="Document not found")
             if document.status != "indexed":
                 raise HTTPException(status_code=409, detail=f"Document '{document.filename}' is {document.status}. Wait for ingestion to complete successfully before querying it.")
-    elif db.scalar(select(Document.document_id).where(Document.user_id == user.user_id, Document.status == "processing")):
+    elif db.scalar(select(Document.document_id).where(Document.user_id.in_(readable_owner_ids(user.user_id)), Document.status == "processing")):
         raise HTTPException(status_code=409, detail="Document ingestion is still processing. Wait for it to complete before asking a question.")
     selected_model = ensure_ollama_model(payload.model_name)
 

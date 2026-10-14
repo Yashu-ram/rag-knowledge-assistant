@@ -10,7 +10,7 @@ from app.storage.database import Base, get_db
 
 
 @pytest.fixture()
-def client(tmp_path, monkeypatch):
+def client(tmp_path, monkeypatch, request):
     from app.api.routes import chat as chat_routes
     from app.retrieval import service, vector_store
     from tests.fakes import TestEmbeddings, grounded_generator
@@ -25,6 +25,16 @@ def client(tmp_path, monkeypatch):
 
     monkeypatch.setattr(chat_routes, "generate_answer", grounded_generator)
     settings = get_settings()
+    sample_dir = tmp_path / "samples"
+    sample_dir.mkdir()
+    for filename, content in getattr(request, "param", {}).items():
+        path = sample_dir / filename
+        path.parent.mkdir(parents=True, exist_ok=True)
+        if isinstance(content, bytes):
+            path.write_bytes(content)
+        else:
+            path.write_text(content, encoding="utf-8")
+    monkeypatch.setattr(settings, "sample_documents_dir", sample_dir)
     settings.upload_dir = tmp_path / "uploads"
     settings.chroma_dir = tmp_path / "chroma"
     settings.jwt_secret_key = "test-secret-key-with-at-least-32-bytes"
@@ -39,6 +49,7 @@ def client(tmp_path, monkeypatch):
     )
     TestingSessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
     Base.metadata.create_all(bind=engine)
+    monkeypatch.setattr(main_module, "SessionLocal", TestingSessionLocal)
 
     def override_get_db():
         db = TestingSessionLocal()

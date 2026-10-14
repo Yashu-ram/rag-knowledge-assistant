@@ -13,6 +13,7 @@ class Settings(BaseSettings):
     database_url: str = "sqlite:///./data/app.db"
     upload_dir: Path = Path("./uploads")
     chroma_dir: Path = Path("./chroma_store")
+    sample_documents_dir: Path = Path(__file__).resolve().parents[2] / "sample_documents"
     max_upload_mb: int = 20
     pdf_extraction_timeout_seconds: int = Field(default=180, ge=1, le=240)
     jwt_secret_key: str = Field(default="change-this-local-secret")

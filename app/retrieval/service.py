@@ -11,6 +11,7 @@ from app.retrieval.fusion import RetrievedChunk, reciprocal_rank_fusion
 from app.retrieval.keyword_search import bm25_scores
 from app.retrieval.vector_store import ChromaVectorStore
 from app.storage.models import Chunk, Document, DocumentPage
+from app.storage.document_access import readable_owner_ids
 from app.core.config import get_settings
 from app.ingestion.profile import INDEX_VERSION
 
@@ -30,7 +31,7 @@ class RetrievalService:
         self.search_diagnostics = {}
 
     def _chunks(self, db: Session, user_id: str, document_ids: list[str] | None = None) -> list[Chunk]:
-        stmt = select(Chunk).join(Document, Chunk.document_id == Document.document_id).where(Chunk.user_id == user_id, Document.status == "indexed")
+        stmt = select(Chunk).join(Document, Chunk.document_id == Document.document_id).where(Document.user_id.in_(readable_owner_ids(user_id)), Chunk.user_id == Document.user_id, Document.status == "indexed")
         if document_ids:
             stmt = stmt.where(Chunk.document_id.in_(document_ids))
         return list(db.scalars(stmt).all())
@@ -66,7 +67,7 @@ class RetrievalService:
     def retrieve(self, db, user_id, query, document_ids=None, *, overview=False, final_k=6):
         scope = document_ids
         if overview:
-            selection = select(Document).where(Document.user_id == user_id, Document.status == "indexed")
+            selection = select(Document).where(Document.user_id.in_(readable_owner_ids(user_id)), Document.status == "indexed")
             if scope:
                 selection = selection.where(Document.document_id.in_(scope))
             document = db.scalar(selection.order_by(Document.created_at.desc(), Document.document_id).limit(1))
@@ -113,7 +114,7 @@ class RetrievalService:
         return [self._to_retrieved(chunk, score, "keyword") for score, chunk in ranked[:top_k] if score > 0]
 
     def overview_search(self, db, user_id, query, document_ids=None):
-        selection = select(Document).where(Document.user_id == user_id, Document.status == "indexed")
+        selection = select(Document).where(Document.user_id.in_(readable_owner_ids(user_id)), Document.status == "indexed")
         if document_ids:
             selection = selection.where(Document.document_id.in_(document_ids))
         document = db.scalar(selection.order_by(Document.created_at.desc(), Document.document_id).limit(1))

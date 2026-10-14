@@ -3,6 +3,7 @@ from langchain_chroma import Chroma
 
 from app.core.config import get_settings
 from app.storage.models import Chunk
+from app.storage.document_access import readable_owner_ids
 from app.retrieval.embeddings import EmbeddingModel
 from app.core.errors import RAGServiceError
 
@@ -55,9 +56,10 @@ class ChromaVectorStore:
             raise RAGServiceError("VECTOR_INDEX_FAILED", "Could not store document vectors in Chroma.") from exc
 
     def search(self, query, user_id, top_k, document_ids=None):
-        where = {"user_id": user_id}
+        owners = readable_owner_ids(user_id)
+        where = {"user_id": {"$in": owners}}
         if document_ids:
-            where = {"$and": [{"user_id": user_id}, {"document_id": {"$in": document_ids}}]}
+            where = {"$and": [where, {"document_id": {"$in": document_ids}}]}
         try:
             count = self._collection.count()
             if not count:
@@ -65,7 +67,7 @@ class ChromaVectorStore:
             retriever = self.store.as_retriever(search_type="similarity", search_kwargs={"k": min(top_k, count), "filter": where})
             documents = retriever.invoke(query)
             return [VectorHit(d.metadata.get("chunk_id") or d.id, 1.0 / (rank + 1)) for rank, d in enumerate(documents)
-                    if d.metadata["user_id"] == user_id and (not document_ids or d.metadata["document_id"] in document_ids)]
+                    if d.metadata["user_id"] in owners and (not document_ids or d.metadata["document_id"] in document_ids)]
         except RAGServiceError:
             raise
         except Exception as exc:
@@ -80,9 +82,10 @@ class ChromaVectorStore:
     ) -> list[VectorHit]:
         if not self.available:
             return []
-        where = {"user_id": user_id}
+        owners = readable_owner_ids(user_id)
+        where = {"user_id": {"$in": owners}}
         if document_ids:
-            where = {"$and": [{"user_id": user_id}, {"document_id": {"$in": document_ids}}]}
+            where = {"$and": [where, {"document_id": {"$in": document_ids}}]}
         count = self._collection.count()
         if not count:
             return []
@@ -98,6 +101,8 @@ class ChromaVectorStore:
         allowed_documents = set(document_ids or [])
         hits: list[VectorHit] = []
         for chunk_id, distance, metadata in zip(ids, distances, metadatas):
+            if metadata.get("user_id") not in owners:
+                continue
             if allowed_documents and metadata.get("document_id") not in allowed_documents:
                 continue
             hits.append(VectorHit(chunk_id=chunk_id, score=1.0 / (1.0 + float(distance))))

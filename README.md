@@ -122,6 +122,14 @@ http://localhost:8501
 
 ## API Usage
 
+The backend automatically indexes files in `sample_documents/` at startup.
+These shared samples are visible and queryable by every logged-in account,
+including newly created accounts, and are labeled as samples in the sidebar.
+Personal uploads remain private to their account. Shared samples cannot be
+deleted or reindexed through user endpoints. Existing indexed samples are reused
+on restart; restart the backend after adding files to the sample folder.
+`SAMPLE_DOCUMENTS_DIR` can point to a different shared sample directory.
+
 Use Swagger at:
 
 ```text

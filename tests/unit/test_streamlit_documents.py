@@ -52,6 +52,19 @@ def test_ui_lists_backend_documents_and_keeps_selection(monkeypatch):
     assert all(call[2]["headers"]["Authorization"] == "Bearer test-token" for call in calls)
 
 
+def test_new_user_can_select_shared_samples_without_uploading(monkeypatch):
+    sample = dict(document("shared-demo"), is_sample=True)
+    app, _ = setup_app(monkeypatch, [sample])
+    app.run()
+    assert not app.exception
+    assert any("shared sample" in item.label for item in app.expander)
+    assert app.multiselect(key="document_selector").options == ["shared-demo.txt [sample] (shared-d)"]
+    app.multiselect(key="document_selector").set_value(["shared-demo"]).run()
+    assert not app.exception
+    assert app.session_state["selected_document_ids"] == ["shared-demo"]
+    assert not any("No documents uploaded" in item.value for item in app.info)
+
+
 def test_refresh_shows_externally_ingested_files_and_removes_deleted_selection(monkeypatch):
     docs = [document()]
     app, _ = setup_app(monkeypatch, docs)

@@ -710,14 +710,15 @@ def render_documents() -> list[str]:
         st.rerun()
     for item in documents:
         status = "completed / indexed" if item["status"] == "indexed" else item["status"]
-        with st.expander(f"{item['filename']} - {status}"):
+        sample_label = " (shared sample)" if item.get("is_sample") else ""
+        with st.expander(f"{item['filename']}{sample_label} - {status}"):
             st.caption(f"Type: {item['file_type']} | Created: {item['created_at']}")
             st.code(item["document_id"], language=None)
             st.caption(f"Chunks: {item.get('analysis', {}).get('chunk_count', 0)}")
             if item.get("error_message"):
                 st.error(item["error_message"])
     options = [item["document_id"] for item in documents if item["status"] == "indexed"] if available else []
-    labels = {item["document_id"]: f"{item['filename']} ({item['document_id'][:8]})" for item in documents}
+    labels = {item["document_id"]: f"{item['filename']}{' [sample]' if item.get('is_sample') else ''} ({item['document_id'][:8]})" for item in documents}
     if st.session_state.pop("document_selection_dirty", False) or "document_selector" not in st.session_state:
         st.session_state["document_selector"] = [
             doc_id for doc_id in st.session_state["selected_document_ids"] if doc_id in options

@@ -28,6 +28,7 @@ class UserMe(BaseModel):
 
 
 class DocumentResponse(BaseModel):
+    is_sample: bool = False
     error_message: str | None = None
     document_id: str
     filename: str

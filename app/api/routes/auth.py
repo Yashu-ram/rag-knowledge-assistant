@@ -43,7 +43,7 @@ def signup(payload: SignupRequest, db: Session = Depends(get_db)) -> AuthRespons
 def login(payload: LoginRequest, db: Session = Depends(get_db)) -> AuthResponse:
     email = normalize_email(payload.email)
     user = db.scalar(select(User).where(User.email == email))
-    if user is None or not verify_password(payload.password, user.password_hash):
+    if user is None or not user.is_active or not verify_password(payload.password, user.password_hash):
         raise HTTPException(status_code=401, detail="Invalid email or password")
     token = create_access_token(db, user)
     return AuthResponse(access_token=token, user_id=user.user_id, full_name=user.full_name, email=user.email)
