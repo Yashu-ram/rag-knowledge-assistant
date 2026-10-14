@@ -1,4 +1,3 @@
-```md
 # HireKiwi RAG Knowledge Assistant
 
 A FastAPI-based Retrieval-Augmented Generation (RAG) API that answers questions from uploaded documents with grounded citations and abstains when the answer is not present in the provided content.
@@ -34,22 +33,22 @@ The system supports PDF, TXT, and Markdown ingestion, semantic retrieval with em
 
 ```mermaid
 flowchart TD
-    A[Upload PDF / TXT / Markdown] --> B[Extract Text]
-    B --> C[Chunk Text With Metadata]
-    C --> D[Create MiniLM Embeddings]
-    D --> E[Store In ChromaDB]
+    A["Upload PDF / TXT / Markdown"] --> B["Extract Text"]
+    B --> C["Chunk Text With Metadata"]
+    C --> D["Create MiniLM Embeddings"]
+    D --> E["Store In ChromaDB"]
 
-    F[User Question] --> G[Create Query Embedding]
-    G --> H[Semantic Vector Search]
-    F --> I[BM25 Keyword Search]
+    F["User Question"] --> G["Create Query Embedding"]
+    G --> H["Semantic Vector Search"]
+    F --> I["BM25 Keyword Search"]
 
-    H --> J[RRF Fusion]
+    H --> J["RRF Fusion"]
     I --> J
-    J --> K[Lightweight Reranking]
-    K --> L[Select Top Context Chunks]
-    L --> M[Ollama LLM Grounded Answer]
-    M --> N[Answer With Citations]
-    M --> O[Abstain If Evidence Missing]
+    J --> K["Lightweight Reranking"]
+    K --> L["Select Top Context Chunks"]
+    L --> M["Ollama LLM Grounded Answer"]
+    M --> N["Answer With Citations"]
+    M --> O["Abstain If Evidence Missing"]
 ```
 
 Streamlit is only an optional frontend. The main deliverable is the FastAPI API.
@@ -173,8 +172,6 @@ The evaluation covers:
 
 ## Latest Verified Results
 
-Latest verification:
-
 | Check | Result |
 |---|---|
 | Automated tests | 231 passed |
@@ -259,4 +256,3 @@ With more time, I would add a more production-level system design with stronger 
 - observability dashboards
 - streaming responses
 - stronger semantic evaluation using RAGAS or LLM-as-judge
-```
