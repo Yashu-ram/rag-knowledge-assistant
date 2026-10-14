@@ -32,23 +32,24 @@ The system supports PDF, TXT, and Markdown ingestion, semantic retrieval with em
 
 ## Architecture
 
-```text
-Upload document
--> extract text
--> chunk text with metadata
--> create MiniLM embeddings
--> store chunks and embeddings in ChromaDB
+```mermaid
+flowchart TD
+    A[Upload PDF / TXT / Markdown] --> B[Extract Text]
+    B --> C[Chunk Text With Metadata]
+    C --> D[Create MiniLM Embeddings]
+    D --> E[Store In ChromaDB]
 
-User question
--> create query embedding
--> semantic vector search
--> BM25 keyword search
--> RRF fusion
--> lightweight reranking
--> send selected context to Ollama
--> generate grounded answer
--> attach citations
--> abstain if evidence is missing
+    F[User Question] --> G[Create Query Embedding]
+    G --> H[Semantic Vector Search]
+    F --> I[BM25 Keyword Search]
+
+    H --> J[RRF Fusion]
+    I --> J
+    J --> K[Lightweight Reranking]
+    K --> L[Select Top Context Chunks]
+    L --> M[Ollama LLM Grounded Answer]
+    M --> N[Answer With Citations]
+    M --> O[Abstain If Evidence Missing]
 ```
 
 Streamlit is only an optional frontend. The main deliverable is the FastAPI API.
